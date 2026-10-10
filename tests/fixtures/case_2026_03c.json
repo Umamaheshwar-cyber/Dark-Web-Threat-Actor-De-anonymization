@@ -1,0 +1,212 @@
+{
+  "case": {
+    "id": "CASE-2026-03C",
+    "candidate": "GhostWeaver",
+    "status": "INVESTIGATION ACTIVE",
+    "classification": "SYNTHETIC DEMO DATA",
+    "description": "Simulated defensive threat intelligence tracking synthetic supply-chain intrusion vectors."
+  },
+  "metrics": {
+    "active_actors": 5,
+    "evidence_records": 27,
+    "correlated_identifiers": 14,
+    "high_confidence_links": 4,
+    "opsec_signals": 9
+  },
+  "actors": [
+    {
+      "id": "ACT-020",
+      "name": "GhostWeaver",
+      "tier": "Tier 1 — High Activity",
+      "confidence": 75,
+      "aliases": [
+        "GhostWeaver",
+        "Ghost_Weave99"
+      ],
+      "pgp": "PGP-SYN-9A72",
+      "wallet": "WALLET-SYN-XMR-333",
+      "stylometry": 72,
+      "behaviour": 79,
+      "note": "Correlation signal — not definitive identity attribution."
+    },
+    {
+      "id": "ACT-021",
+      "name": "WeaverNode",
+      "tier": "Tier 3 — Occasional",
+      "confidence": 52,
+      "aliases": [
+        "WeaverNode"
+      ],
+      "pgp": "PGP-SYN-2B88",
+      "wallet": "WALLET-SYN-XMR-112",
+      "stylometry": 58,
+      "behaviour": 55,
+      "note": "Synthetic analytical signal."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "EV-020",
+      "type": "ALIAS",
+      "identifier": "Ghost_Weave99",
+      "timestamp": "2026-07-05 08:30",
+      "relationship": "Alias similarity",
+      "confidence": "High",
+      "status": "Correlated"
+    },
+    {
+      "id": "EV-021",
+      "type": "PGP",
+      "identifier": "PGP-SYN-9A72",
+      "timestamp": "2026-07-12 11:15",
+      "relationship": "Identifier reuse",
+      "confidence": "High",
+      "status": "Correlated"
+    },
+    {
+      "id": "EV-022",
+      "type": "WALLET",
+      "identifier": "WALLET-SYN-XMR-333",
+      "timestamp": "2026-07-19 19:40",
+      "relationship": "Identifier reuse",
+      "confidence": "High",
+      "status": "Correlated"
+    },
+    {
+      "id": "EV-023",
+      "type": "STYLOMETRY",
+      "identifier": "STYLE-SYN-88",
+      "timestamp": "2026-07-26 14:10",
+      "relationship": "Writing-style similarity",
+      "confidence": "Medium",
+      "status": "Analysed"
+    },
+    {
+      "id": "EV-024",
+      "type": "BEHAVIOUR",
+      "identifier": "BEHAV-SYN-41",
+      "timestamp": "2026-08-02 23:50",
+      "relationship": "Activity similarity",
+      "confidence": "High",
+      "status": "Observed"
+    }
+  ],
+  "timeline": [
+    {
+      "week": "Week 1",
+      "date": "2026-07-05",
+      "event": "Developer alias observed",
+      "detail": "Ghost_Weave99 observed in synthetic package registry."
+    },
+    {
+      "week": "Week 2",
+      "date": "2026-07-12",
+      "event": "Signing key correlation",
+      "detail": "PGP-SYN-9A72 used to sign synthetic library release."
+    },
+    {
+      "week": "Week 3",
+      "date": "2026-07-19",
+      "event": "Donation address correlated",
+      "detail": "WALLET-SYN-XMR-333 detected in synthetic maintainer bio."
+    },
+    {
+      "week": "Week 4",
+      "date": "2026-07-26",
+      "event": "Commit message stylometry",
+      "detail": "Language syntax matched STYLE-SYN-88 profile."
+    },
+    {
+      "week": "Week 5",
+      "date": "2026-08-02",
+      "event": "Operational diurnal pattern",
+      "detail": "Coordinated commits observed between 22:00-02:00 UTC."
+    },
+    {
+      "week": "Week 6",
+      "date": "2026-08-09",
+      "event": "Identity synthesis confirmed",
+      "detail": "Cross-vector linkage confirmed candidate cluster."
+    }
+  ],
+  "opsec": {
+    "actor_id": "ACT-020",
+    "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4",
+      "Week 5",
+      "Week 6"
+    ],
+    "values": [
+      22,
+      30,
+      39,
+      47,
+      58,
+      65
+    ],
+    "description": "Higher values indicate more observable identity-exposure signals."
+  },
+  "graph": {
+    "nodes": [
+      {
+        "id": "GhostWeaver",
+        "type": "Actor",
+        "x": 50,
+        "y": 50
+      },
+      {
+        "id": "Ghost_Weave99",
+        "type": "Alias",
+        "x": 25,
+        "y": 32
+      },
+      {
+        "id": "PGP-SYN-9A72",
+        "type": "PGP",
+        "x": 25,
+        "y": 68
+      },
+      {
+        "id": "WALLET-SYN-XMR-333",
+        "type": "Wallet",
+        "x": 75,
+        "y": 32
+      },
+      {
+        "id": "WeaverNode",
+        "type": "Alias",
+        "x": 75,
+        "y": 68
+      }
+    ],
+    "edges": [
+      {
+        "source": "GhostWeaver",
+        "target": "Ghost_Weave99",
+        "relationship": "Alias similarity",
+        "confidence": "High"
+      },
+      {
+        "source": "GhostWeaver",
+        "target": "PGP-SYN-9A72",
+        "relationship": "Identifier reuse",
+        "confidence": "High"
+      },
+      {
+        "source": "GhostWeaver",
+        "target": "WALLET-SYN-XMR-333",
+        "relationship": "Identifier reuse",
+        "confidence": "High"
+      },
+      {
+        "source": "GhostWeaver",
+        "target": "WeaverNode",
+        "relationship": "Behaviour similarity",
+        "confidence": "Medium"
+      }
+    ]
+  }
+}

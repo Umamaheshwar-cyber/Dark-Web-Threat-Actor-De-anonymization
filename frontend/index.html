@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHADOWTRACE // Threat Actor Intelligence Platform</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- CRT Scanline Effect -->
+  <div class="scanlines"></div>
+
+  <!-- Matrix Background Canvas -->
+  <canvas id="matrixCanvas"></canvas>
+
+  <!-- Boot Sequence Terminal Screen -->
+  <div id="bootScreen" class="boot-screen">
+    <div class="boot-logo">SHADOWTRACE v2.0 // ADVANCED CTI PLATFORM</div>
+    <div class="boot-lines" id="bootLines"></div>
+    <button class="boot-skip-btn" onclick="skipBoot()">[ SKIP INITIALIZATION ]</button>
+  </div>
+
+  <!-- App Shell -->
+  <div class="app-shell">
+    <!-- Top Header -->
+    <header class="topbar">
+      <div class="logo-area">
+        <div class="logo-glitch" onclick="navigateTo('overview')">SHADOWTRACE</div>
+        <span class="tag-badge">DEFENSIVE CTI // AIR-GAPPED</span>
+      </div>
+
+      <div class="topbar-center">
+        <div class="search-box">
+          <input type="text" id="globalSearch" placeholder="SEARCH IOC, ACTOR, HASH, WALLET, CIDR..." autocomplete="off">
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <div class="sys-stat">
+          <span class="dot dot-green" id="sysDot"></span>
+          <span id="sysStatusText">GRID ONLINE</span>
+        </div>
+        <div class="sys-stat">
+          <span style="color:var(--text-dim)">UTC:</span>
+          <span class="clock-utc" id="liveClock">00:00:00</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Shell Body -->
+    <div class="shell-body">
+      <!-- Left Sidebar: 240px -->
+      <aside class="sidebar">
+        <div class="nav-header">// NAVIGATION GRID</div>
+        <ul class="nav-list" id="navList">
+          <li>
+            <button class="nav-btn active" data-page="overview" onclick="navigateTo('overview')">
+              <div><span class="icon">⬡</span><span>OVERVIEW</span></div>
+              <span class="nav-count" id="countOverview">GRID</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-page="actors" onclick="navigateTo('actors')">
+              <div><span class="icon">◈</span><span>ACTORS</span></div>
+              <span class="nav-count" id="countActors">-</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-page="evidence" onclick="navigateTo('evidence')">
+              <div><span class="icon">◉</span><span>EVIDENCE</span></div>
+              <span class="nav-count" id="countEvidence">-</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-page="graph" onclick="navigateTo('graph')">
+              <div><span class="icon">⬡</span><span>REL. GRAPH</span></div>
+              <span class="nav-count" id="countGraph">-</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-page="timeline" onclick="navigateTo('timeline')">
+              <div><span class="icon">◈</span><span>TIMELINE</span></div>
+              <span class="nav-count" id="countTimeline">-</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-page="analytics" onclick="navigateTo('analytics')">
+              <div><span class="icon">◉</span><span>ANALYTICS</span></div>
+              <span class="nav-count" id="countAnalytics">TELEMETRY</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-page="opsec" onclick="navigateTo('opsec')">
+              <div><span class="icon">⬡</span><span>OPSEC DECAY</span></div>
+              <span class="nav-count" id="countOpsec">-</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-page="identity" onclick="navigateTo('identity')">
+              <div><span class="icon">◈</span><span>IDENTITY SIGNALS</span></div>
+              <span class="nav-count" id="countIdentity">PROFILES</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-page="threat_feeds" onclick="navigateTo('threat_feeds')">
+              <div><span class="icon">◉</span><span>THREAT FEEDS</span></div>
+              <span class="nav-count" id="countFeeds">6 FEEDS</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-page="dead_drops" onclick="navigateTo('dead_drops')">
+              <div><span class="icon">⬡</span><span>DEAD DROPS</span></div>
+              <span class="nav-count" id="countDeaddrops">-</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-page="reports" onclick="navigateTo('reports')">
+              <div><span class="icon">◈</span><span>REPORTS</span></div>
+              <span class="nav-count" id="countReports">EXPORT</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-page="settings" onclick="navigateTo('settings')">
+              <div><span class="icon">◉</span><span>SETTINGS</span></div>
+              <span class="nav-count" id="countSettings">CONF</span>
+            </button>
+          </li>
+        </ul>
+
+        <div class="sidebar-footer">
+          <div>DEFENSE COMPLIANCE: 100%</div>
+          <div class="hex-deco">0x53 0x48 0x41 0x44 0x4F 0x57</div>
+          <div style="margin-top:6px; color:var(--text-muted)">CTI RESEARCH BUILD v2.0</div>
+        </div>
+      </aside>
+
+      <!-- Main Viewport -->
+      <main class="main-viewport" id="mainViewport">
+        <!-- Rendered page injected here via app.js -->
+        <div id="contentArea"></div>
+      </main>
+    </div>
+
+    <!-- Sticky Bottom Status Ticker -->
+    <footer class="status-ticker">
+      <div class="ticker-marquee" id="tickerMarquee">
+        <span class="ticker-item">PLATFORM: <b>SHADOWTRACE CTI</b></span>
+        <span class="ticker-item">TOTAL IOCs: <b id="tickTotalIocs">0</b></span>
+        <span class="ticker-item">THREAT FEEDS: <b>CIRCL · THREATFOX · URLHAUS · FEODO · MALWAREBAZAAR · OTX</b></span>
+        <span class="ticker-item">LIVE SENSORS: <b>ONLINE</b></span>
+        <span class="ticker-item">STATUS: <b>AUTHORIZED DEFENSIVE SURVEILLANCE</b></span>
+      </div>
+      <div style="color:var(--text-dim)">
+        <span>DISCLAIMER: </span><span style="color:var(--accent-amber)">ANALYTICAL HYPOTHESIS — NOT PROOF OF IDENTITY</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Detail / Modal Dialog -->
+  <div id="modalOverlay" class="modal-overlay hidden" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-content">
+      <div class="modal-head">
+        <h3 id="modalTitle">MODAL TITLE</h3>
+        <button class="term-btn secondary" onclick="closeModal()">[ CLOSE X ]</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notice -->
+  <div id="toastNotice" class="toast-notice">SYSTEM NOTIFICATION</div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

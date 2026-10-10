@@ -1,0 +1,238 @@
+{
+  "case": {
+    "id": "CASE-2026-09X",
+    "candidate": "ShadowX",
+    "status": "INVESTIGATION ACTIVE",
+    "classification": "SYNTHETIC DEMO DATA",
+    "description": "Defensive cybersecurity research prototype using synthetic intelligence artifacts."
+  },
+  "metrics": {
+    "active_actors": 12,
+    "evidence_records": 48,
+    "correlated_identifiers": 23,
+    "high_confidence_links": 7,
+    "opsec_signals": 15
+  },
+  "actors": [
+    {
+      "id": "ACT-001",
+      "name": "ShadowX",
+      "tier": "Tier 1 — High Activity",
+      "confidence": 78,
+      "aliases": [
+        "ShadowX",
+        "ShadowX2"
+      ],
+      "pgp": "PGP-SYN-8F21",
+      "wallet": "WALLET-SYN-441",
+      "stylometry": 78,
+      "behaviour": 74,
+      "note": "Correlation signal — not definitive identity attribution."
+    },
+    {
+      "id": "ACT-002",
+      "name": "Forum-Alias-17",
+      "tier": "Tier 2 — Monitored",
+      "confidence": 61,
+      "aliases": [
+        "Forum-Alias-17"
+      ],
+      "pgp": "PGP-SYN-4B10",
+      "wallet": "WALLET-SYN-882",
+      "stylometry": 62,
+      "behaviour": 59,
+      "note": "Synthetic analytical signal."
+    },
+    {
+      "id": "ACT-003",
+      "name": "Marketplace-Alias-04",
+      "tier": "Tier 2 — Monitored",
+      "confidence": 57,
+      "aliases": [
+        "Marketplace-Alias-04"
+      ],
+      "pgp": "PGP-SYN-7C31",
+      "wallet": "WALLET-SYN-210",
+      "stylometry": 55,
+      "behaviour": 60,
+      "note": "Synthetic analytical signal."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "EV-001",
+      "type": "ALIAS",
+      "identifier": "ShadowX2",
+      "timestamp": "2026-09-01 09:20",
+      "relationship": "Alias similarity",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "EV-002",
+      "type": "PGP",
+      "identifier": "PGP-SYN-8F21",
+      "timestamp": "2026-09-08 13:10",
+      "relationship": "Identifier reuse",
+      "confidence": "High",
+      "status": "Correlated"
+    },
+    {
+      "id": "EV-003",
+      "type": "STYLOMETRY",
+      "identifier": "STYLE-SYN-22",
+      "timestamp": "2026-09-15 18:42",
+      "relationship": "Writing-style similarity",
+      "confidence": "Medium",
+      "status": "Analysed"
+    },
+    {
+      "id": "EV-004",
+      "type": "WALLET",
+      "identifier": "WALLET-SYN-441",
+      "timestamp": "2026-09-22 11:05",
+      "relationship": "Identifier reuse",
+      "confidence": "High",
+      "status": "Correlated"
+    },
+    {
+      "id": "EV-005",
+      "type": "BEHAVIOUR",
+      "identifier": "BEHAV-SYN-09",
+      "timestamp": "2026-09-29 21:15",
+      "relationship": "Activity similarity",
+      "confidence": "Medium",
+      "status": "Observed"
+    }
+  ],
+  "timeline": [
+    {
+      "week": "Week 1",
+      "date": "2026-09-01",
+      "event": "Alias observed",
+      "detail": "ShadowX2 observed in synthetic source data."
+    },
+    {
+      "week": "Week 2",
+      "date": "2026-09-08",
+      "event": "PGP identifier correlated",
+      "detail": "PGP-SYN-8F21 associated with the synthetic cluster."
+    },
+    {
+      "week": "Week 3",
+      "date": "2026-09-15",
+      "event": "Writing-style similarity detected",
+      "detail": "STYLE-SYN-22 produced a medium analytical signal."
+    },
+    {
+      "week": "Week 4",
+      "date": "2026-09-22",
+      "event": "Wallet identifier correlated",
+      "detail": "WALLET-SYN-441 associated with the synthetic cluster."
+    },
+    {
+      "week": "Week 5",
+      "date": "2026-09-29",
+      "event": "Alias migration detected",
+      "detail": "Synthetic alias transition observed."
+    },
+    {
+      "week": "Week 6",
+      "date": "2026-09-30",
+      "event": "Multiple signals correlated",
+      "detail": "Several independent synthetic signals intersected."
+    }
+  ],
+  "opsec": {
+    "actor_id": "ACT-001",
+    "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4",
+      "Week 5",
+      "Week 6"
+    ],
+    "values": [
+      31,
+      36,
+      42,
+      51,
+      59,
+      68
+    ],
+    "description": "Higher values indicate more observable identity-exposure signals."
+  },
+  "graph": {
+    "nodes": [
+      {
+        "id": "ShadowX",
+        "type": "Actor",
+        "x": 50,
+        "y": 50
+      },
+      {
+        "id": "ShadowX2",
+        "type": "Alias",
+        "x": 20,
+        "y": 25
+      },
+      {
+        "id": "PGP-SYN-8F21",
+        "type": "PGP",
+        "x": 20,
+        "y": 75
+      },
+      {
+        "id": "WALLET-SYN-441",
+        "type": "Wallet",
+        "x": 80,
+        "y": 25
+      },
+      {
+        "id": "Forum-Alias-17",
+        "type": "Alias",
+        "x": 82,
+        "y": 72
+      },
+      {
+        "id": "Marketplace-Alias-04",
+        "type": "Alias",
+        "x": 50,
+        "y": 88
+      }
+    ],
+    "edges": [
+      {
+        "source": "ShadowX",
+        "target": "ShadowX2",
+        "relationship": "Alias similarity",
+        "confidence": "Medium"
+      },
+      {
+        "source": "ShadowX",
+        "target": "PGP-SYN-8F21",
+        "relationship": "Identifier reuse",
+        "confidence": "High"
+      },
+      {
+        "source": "ShadowX",
+        "target": "WALLET-SYN-441",
+        "relationship": "Identifier reuse",
+        "confidence": "High"
+      },
+      {
+        "source": "ShadowX",
+        "target": "Forum-Alias-17",
+        "relationship": "Behaviour similarity",
+        "confidence": "Medium"
+      },
+      {
+        "source": "ShadowX",
+        "target": "Marketplace-Alias-04",
+        "relationship": "Writing-style similarity",
+        "confidence": "Medium"
+      }
+    ]
+  }
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHADOWTRACE Local Authorized Test Forum</title>
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --panel: #151b22;
+      --border: #2a3440;
+      --text: #e8eef4;
+      --muted: #8b98a5;
+      --accent: #4ea1ff;
+      --danger: #ff4d4f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Segoe UI, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header, main { max-width: 920px; margin: 0 auto; padding: 16px; }
+    header h1 { margin: 0 0 6px; font-size: 22px; }
+    header p { margin: 0; color: var(--muted); font-size: 13px; }
+    form, .post {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 14px;
+    }
+    label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+    input, textarea {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #0b0f14;
+      color: var(--text);
+    }
+    textarea { min-height: 80px; resize: vertical; }
+    button {
+      border: 0;
+      border-radius: 6px;
+      padding: 8px 12px;
+      cursor: pointer;
+      background: var(--accent);
+      color: #081018;
+      font-weight: 600;
+    }
+    button.danger { background: var(--danger); color: #fff; }
+    button.ghost { background: #21262d; color: var(--text); }
+    .row { font-size: 13px; margin: 4px 0; color: var(--muted); }
+    .row b { color: var(--text); font-weight: 600; }
+    .content { white-space: pre-wrap; margin: 8px 0; color: var(--text); }
+    .deleted .content { text-decoration: line-through; color: var(--muted); }
+    .panic {
+      color: var(--danger);
+      font-weight: 800;
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    .history {
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 10px;
+      padding-top: 8px;
+    }
+    .actions { display: flex; gap: 8px; margin-top: 10px; }
+    .empty { color: var(--muted); margin-top: 16px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Local Authorized Test Forum</h1>
+    <p>Local SHADOWTRACE test environment only. Auto-refresh every 3 seconds.</p>
+  </header>
+  <main>
+    <form id="createForm">
+      <label for="alias">Alias</label>
+      <input id="alias" name="alias" required>
+      <label for="content">Content</label>
+      <textarea id="content" name="content" required></textarea>
+      <label for="thread">Thread ID</label>
+      <input id="thread" name="thread_id" required>
+      <button type="submit">Create Post</button>
+    </form>
+    <div id="posts"></div>
+  </main>
+  <script>
+    const postsEl = document.getElementById("posts");
+
+    async function api(url, options) {
+      const res = await fetch(url, options);
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.detail || res.statusText);
+      }
+      return data;
+    }
+
+    async function loadPosts() {
+      const posts = await api("/forum/posts");
+      if (!posts.length) {
+        postsEl.innerHTML = '<p class="empty">No posts yet.</p>';
+        return;
+      }
+      postsEl.innerHTML = posts.map(renderPost).join("");
+      postsEl.querySelectorAll("[data-edit]").forEach((btn) => {
+        btn.addEventListener("click", () => editPost(btn.dataset.edit));
+      });
+      postsEl.querySelectorAll("[data-delete]").forEach((btn) => {
+        btn.addEventListener("click", () => deletePost(btn.dataset.delete));
+      });
+    }
+
+    function renderPost(post) {
+      const deleted = post.was_deleted === true;
+      const history = (post.edit_history || [])
+        .map((h) => "v" + h.version + " @ " + h.timestamp + ": " + escapeHtml(h.content))
+        .join("<br>");
+      let panic = "";
+      if (post.suspicious_deletion === true) {
+        const seconds = post.deletion_speed_seconds != null
+          ? Math.floor(post.deletion_speed_seconds)
+          : "X";
+        panic = '<div class="panic">⚠ PANIC DELETION — deleted in ' + seconds + " seconds</div>";
+      }
+      const actions = deleted
+        ? ""
+        : '<div class="actions">' +
+          '<button class="ghost" type="button" data-edit="' + post.post_id + '">Edit</button>' +
+          '<button class="danger" type="button" data-delete="' + post.post_id + '">Delete</button>' +
+          "</div>";
+      return (
+        '<article class="post' + (deleted ? " deleted" : "") + '">' +
+          '<div class="row">Post ID: <b>' + escapeHtml(post.post_id) + "</b></div>" +
+          '<div class="row">Alias: <b>' + escapeHtml(post.alias) + "</b></div>" +
+          '<div class="row">Thread: <b>' + escapeHtml(post.thread_id) + "</b></div>" +
+          '<div class="row">Status: <b>' + escapeHtml(post.status) + "</b></div>" +
+          '<div class="content">' + escapeHtml(post.content) + "</div>" +
+          '<div class="row">Posted: <b>' + escapeHtml(post.timestamp_posted) + "</b></div>" +
+          '<div class="row">Captured: <b>' + escapeHtml(post.timestamp_captured) + "</b></div>" +
+          '<div class="row">Deleted: <b>' + escapeHtml(post.deleted_at) + "</b></div>" +
+          '<div class="row">Deletion speed: <b>' + escapeHtml(post.deletion_speed_seconds) + "</b></div>" +
+          '<div class="row">Deletion signal: <b>' + escapeHtml(post.deletion_signal) + "</b></div>" +
+          '<div class="row">Suspicious deletion: <b>' + escapeHtml(post.suspicious_deletion) + "</b></div>" +
+          panic +
+          '<div class="history"><strong>Edit history</strong><br>' + (history || "none") + "</div>" +
+          actions +
+        "</article>"
+      );
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    document.getElementById("createForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      await api("/forum/posts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          alias: document.getElementById("alias").value,
+          content: document.getElementById("content").value,
+          thread_id: document.getElementById("thread").value,
+        }),
+      });
+      document.getElementById("content").value = "";
+      await loadPosts();
+    });
+
+    async function editPost(postId) {
+      const content = prompt("New content:");
+      if (!content) return;
+      await api("/forum/posts/" + postId, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content }),
+      });
+      await loadPosts();
+    }
+
+    async function deletePost(postId) {
+      if (!confirm("Delete this post?")) return;
+      await api("/forum/posts/" + postId, { method: "DELETE" });
+      await loadPosts();
+    }
+
+    loadPosts();
+    setInterval(loadPosts, 3000);
+  </script>
+</body>
+</html>

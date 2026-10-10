@@ -1,0 +1,17 @@
+{
+  "processed_event_uuids": [
+    "55b7c901-614c-44d1-a638-440e950d210b",
+    "56587437-7f08-4381-85bc-a829950d210b",
+    "568e62b7-0930-4398-a617-4147950d210f",
+    "56bf399d-c46c-4fdb-a9cf-d9bb02de0b81",
+    "56bf4797-aaf4-4e08-ab5f-6cf102de0b81",
+    "56c44d9a-a738-4a22-9306-058c950d210f",
+    "56cdcbde-4fb4-4523-b01d-ff01950d210f",
+    "56d42420-c838-4c85-80ee-1365950d210f",
+    "56d4b32d-664c-4647-a748-1362950d210f"
+  ],
+  "last_poll_timestamp": "2026-10-04T06:03:19.574724+00:00",
+  "last_poll_status": "SUCCESS",
+  "total_events_processed": 9,
+  "total_evidence_imported": 129
+}

@@ -1,0 +1,212 @@
+{
+  "case": {
+    "id": "CASE-2026-02B",
+    "candidate": "CipherPhantom",
+    "status": "INVESTIGATION ACTIVE",
+    "classification": "SYNTHETIC DEMO DATA",
+    "description": "Simulated defensive threat intelligence tracking synthetic ransomware affiliate cluster identifiers."
+  },
+  "metrics": {
+    "active_actors": 8,
+    "evidence_records": 34,
+    "correlated_identifiers": 19,
+    "high_confidence_links": 5,
+    "opsec_signals": 12
+  },
+  "actors": [
+    {
+      "id": "ACT-010",
+      "name": "CipherPhantom",
+      "tier": "Tier 1 — High Activity",
+      "confidence": 82,
+      "aliases": [
+        "CipherPhantom",
+        "PhantomCrypt_dev"
+      ],
+      "pgp": "PGP-SYN-3E99",
+      "wallet": "WALLET-SYN-BTC-901",
+      "stylometry": 81,
+      "behaviour": 76,
+      "note": "Correlation signal — not definitive identity attribution."
+    },
+    {
+      "id": "ACT-011",
+      "name": "PhantomBroker",
+      "tier": "Tier 2 — Monitored",
+      "confidence": 64,
+      "aliases": [
+        "PhantomBroker"
+      ],
+      "pgp": "PGP-SYN-1A44",
+      "wallet": "WALLET-SYN-BTC-512",
+      "stylometry": 66,
+      "behaviour": 62,
+      "note": "Synthetic analytical signal."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "EV-010",
+      "type": "ALIAS",
+      "identifier": "PhantomCrypt_dev",
+      "timestamp": "2026-08-10 10:14",
+      "relationship": "Alias similarity",
+      "confidence": "High",
+      "status": "Correlated"
+    },
+    {
+      "id": "EV-011",
+      "type": "PGP",
+      "identifier": "PGP-SYN-3E99",
+      "timestamp": "2026-08-17 14:30",
+      "relationship": "Identifier reuse",
+      "confidence": "High",
+      "status": "Correlated"
+    },
+    {
+      "id": "EV-012",
+      "type": "WALLET",
+      "identifier": "WALLET-SYN-BTC-901",
+      "timestamp": "2026-08-24 16:50",
+      "relationship": "Identifier reuse",
+      "confidence": "High",
+      "status": "Correlated"
+    },
+    {
+      "id": "EV-013",
+      "type": "STYLOMETRY",
+      "identifier": "STYLE-SYN-55",
+      "timestamp": "2026-08-31 12:20",
+      "relationship": "Writing-style similarity",
+      "confidence": "Medium",
+      "status": "Analysed"
+    },
+    {
+      "id": "EV-014",
+      "type": "BEHAVIOUR",
+      "identifier": "BEHAV-SYN-18",
+      "timestamp": "2026-09-07 22:05",
+      "relationship": "Activity similarity",
+      "confidence": "Medium",
+      "status": "Observed"
+    }
+  ],
+  "timeline": [
+    {
+      "week": "Week 1",
+      "date": "2026-08-10",
+      "event": "Initial alias discovery",
+      "detail": "PhantomCrypt_dev observed in synthetic repository commit."
+    },
+    {
+      "week": "Week 2",
+      "date": "2026-08-17",
+      "event": "PGP key correlation",
+      "detail": "PGP-SYN-3E99 correlated with synthetic payload signer."
+    },
+    {
+      "week": "Week 3",
+      "date": "2026-08-24",
+      "event": "Cryptocurrency wallet linked",
+      "detail": "WALLET-SYN-BTC-901 identified in synthetic ransom note."
+    },
+    {
+      "week": "Week 4",
+      "date": "2026-08-31",
+      "event": "Stylometric clustering",
+      "detail": "Language patterns in negotiation portal matched STYLE-SYN-55."
+    },
+    {
+      "week": "Week 5",
+      "date": "2026-09-07",
+      "event": "C2 infrastructure co-location",
+      "detail": "Synthetic IP 198.51.100.42 temporal overlap detected."
+    },
+    {
+      "week": "Week 6",
+      "date": "2026-09-14",
+      "event": "Cluster convergence",
+      "detail": "Multiple synthetic telemetry signals intersected."
+    }
+  ],
+  "opsec": {
+    "actor_id": "ACT-010",
+    "labels": [
+      "Week 1",
+      "Week 2",
+      "Week 3",
+      "Week 4",
+      "Week 5",
+      "Week 6"
+    ],
+    "values": [
+      28,
+      35,
+      48,
+      56,
+      64,
+      73
+    ],
+    "description": "Higher values indicate more observable identity-exposure signals."
+  },
+  "graph": {
+    "nodes": [
+      {
+        "id": "CipherPhantom",
+        "type": "Actor",
+        "x": 50,
+        "y": 50
+      },
+      {
+        "id": "PhantomCrypt_dev",
+        "type": "Alias",
+        "x": 22,
+        "y": 30
+      },
+      {
+        "id": "PGP-SYN-3E99",
+        "type": "PGP",
+        "x": 22,
+        "y": 70
+      },
+      {
+        "id": "WALLET-SYN-BTC-901",
+        "type": "Wallet",
+        "x": 78,
+        "y": 30
+      },
+      {
+        "id": "PhantomBroker",
+        "type": "Alias",
+        "x": 78,
+        "y": 70
+      }
+    ],
+    "edges": [
+      {
+        "source": "CipherPhantom",
+        "target": "PhantomCrypt_dev",
+        "relationship": "Alias similarity",
+        "confidence": "High"
+      },
+      {
+        "source": "CipherPhantom",
+        "target": "PGP-SYN-3E99",
+        "relationship": "Identifier reuse",
+        "confidence": "High"
+      },
+      {
+        "source": "CipherPhantom",
+        "target": "WALLET-SYN-BTC-901",
+        "relationship": "Identifier reuse",
+        "confidence": "High"
+      },
+      {
+        "source": "CipherPhantom",
+        "target": "PhantomBroker",
+        "relationship": "Behaviour similarity",
+        "confidence": "Medium"
+      }
+    ]
+  }
+}

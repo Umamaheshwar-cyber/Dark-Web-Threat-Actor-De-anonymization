@@ -1,0 +1,1204 @@
+{
+  "case": {
+    "id": "CASE-AUTH-MISP",
+    "candidate": "Authorized Feed Subject",
+    "status": "AUTHORIZED CTI FEED",
+    "classification": "AUTHORIZED CTI INTELLIGENCE",
+    "description": "Authorized CTI feed indicators imported from authenticated MISP instance. Strictly non-attributive."
+  },
+  "metrics": {
+    "active_actors": 1,
+    "evidence_records": 129,
+    "correlated_identifiers": 0,
+    "high_confidence_links": 0,
+    "opsec_signals": 0
+  },
+  "actors": [
+    {
+      "id": "ACT-AUTH-001",
+      "name": "Authorized Feed Cluster",
+      "tier": "Tier 1 — Monitored Feed",
+      "confidence": null,
+      "aliases": [],
+      "pgp": null,
+      "wallet": null,
+      "stylometry": null,
+      "behaviour": null,
+      "note": "Authorized threat intelligence indicators from authenticated MISP instance."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "CIRCL-EV-55b7c901-1",
+      "type": "INDICATOR",
+      "identifier": "http://www.symantec.com/connect/blogs/black-vine-formidable-cyberespionage-group-targeted-aerospace-healthcare-2012",
+      "timestamp": "2015-07-28",
+      "relationship": "CIRCL OSINT: OSINT Black Vine: Formidable cyberespionage group targeted aerospace, healthcare since 2012 by Symantec",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-55b7c901-2",
+      "type": "INDICATOR",
+      "identifier": "http://www.symantec.com/content/en/us/enterprise/media/security_response/whitepapers/the-black-vine-cyberespionage-group.pdf",
+      "timestamp": "2015-07-28",
+      "relationship": "CIRCL OSINT: OSINT Black Vine: Formidable cyberespionage group targeted aerospace, healthcare since 2012 by Symantec",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-55b7c901-3",
+      "type": "INDICATOR",
+      "identifier": "Black Vine",
+      "timestamp": "2015-07-28",
+      "relationship": "CIRCL OSINT: OSINT Black Vine: Formidable cyberespionage group targeted aerospace, healthcare since 2012 by Symantec",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-55b7c901-4",
+      "type": "INDICATOR",
+      "identifier": "ameteksen.com",
+      "timestamp": "2015-07-28",
+      "relationship": "CIRCL OSINT: OSINT Black Vine: Formidable cyberespionage group targeted aerospace, healthcare since 2012 by Symantec - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-55b7c901-5",
+      "type": "INDICATOR",
+      "identifier": "asconline.we11point.com",
+      "timestamp": "2015-07-28",
+      "relationship": "CIRCL OSINT: OSINT Black Vine: Formidable cyberespionage group targeted aerospace, healthcare since 2012 by Symantec - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-55b7c901-6",
+      "type": "INDICATOR",
+      "identifier": "assso.net",
+      "timestamp": "2015-07-28",
+      "relationship": "CIRCL OSINT: OSINT Black Vine: Formidable cyberespionage group targeted aerospace, healthcare since 2012 by Symantec - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-55b7c901-7",
+      "type": "INDICATOR",
+      "identifier": "capstoneturbine.cechire.com",
+      "timestamp": "2015-07-28",
+      "relationship": "CIRCL OSINT: OSINT Black Vine: Formidable cyberespionage group targeted aerospace, healthcare since 2012 by Symantec - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-55b7c901-8",
+      "type": "INDICATOR",
+      "identifier": "caref1rst.com",
+      "timestamp": "2015-07-28",
+      "relationship": "CIRCL OSINT: OSINT Black Vine: Formidable cyberespionage group targeted aerospace, healthcare since 2012 by Symantec - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-55b7c901-9",
+      "type": "INDICATOR",
+      "identifier": "careflrst.com",
+      "timestamp": "2015-07-28",
+      "relationship": "CIRCL OSINT: OSINT Black Vine: Formidable cyberespionage group targeted aerospace, healthcare since 2012 by Symantec - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-55b7c901-10",
+      "type": "INDICATOR",
+      "identifier": "empireb1ue.com",
+      "timestamp": "2015-07-28",
+      "relationship": "CIRCL OSINT: OSINT Black Vine: Formidable cyberespionage group targeted aerospace, healthcare since 2012 by Symantec - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-55b7c901-11",
+      "type": "INDICATOR",
+      "identifier": "extcitrix.we11point.com",
+      "timestamp": "2015-07-28",
+      "relationship": "CIRCL OSINT: OSINT Black Vine: Formidable cyberespionage group targeted aerospace, healthcare since 2012 by Symantec - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-55b7c901-12",
+      "type": "INDICATOR",
+      "identifier": "facefuture.us",
+      "timestamp": "2015-07-28",
+      "relationship": "CIRCL OSINT: OSINT Black Vine: Formidable cyberespionage group targeted aerospace, healthcare since 2012 by Symantec - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-55b7c901-13",
+      "type": "INDICATOR",
+      "identifier": "gifas.blogsite.org",
+      "timestamp": "2015-07-28",
+      "relationship": "CIRCL OSINT: OSINT Black Vine: Formidable cyberespionage group targeted aerospace, healthcare since 2012 by Symantec - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-55b7c901-14",
+      "type": "INDICATOR",
+      "identifier": "gifas.cechire.com",
+      "timestamp": "2015-07-28",
+      "relationship": "CIRCL OSINT: OSINT Black Vine: Formidable cyberespionage group targeted aerospace, healthcare since 2012 by Symantec - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-55b7c901-15",
+      "type": "INDICATOR",
+      "identifier": "healthslie.com",
+      "timestamp": "2015-07-28",
+      "relationship": "CIRCL OSINT: OSINT Black Vine: Formidable cyberespionage group targeted aerospace, healthcare since 2012 by Symantec - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf399d-1",
+      "type": "INDICATOR",
+      "identifier": "http://blog.cylance.com/hunting-for-malware-with-machine-learning",
+      "timestamp": "2015-12-18",
+      "relationship": "CIRCL OSINT: OSINT - Hunting for Malware with Machine Learning",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf399d-2",
+      "type": "INDICATOR",
+      "identifier": "00a9466358d2b716be215f856c44e2b62df64b29a4d04aaa1ef0a194d825313f",
+      "timestamp": "2015-12-18",
+      "relationship": "CIRCL OSINT: OSINT - Hunting for Malware with Machine Learning - Evora",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf399d-3",
+      "type": "INDICATOR",
+      "identifier": "0a372eb55d5bc91be510a4d9084a5c15ec22c3b066fe226994566a136564a2ec",
+      "timestamp": "2015-12-18",
+      "relationship": "CIRCL OSINT: OSINT - Hunting for Malware with Machine Learning - Evora",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf399d-4",
+      "type": "INDICATOR",
+      "identifier": "11107f6f1f41466ae9e01cd6fc3a3c615e1fa8ee8f7e786a2f7b5b371434af9c",
+      "timestamp": "2015-12-18",
+      "relationship": "CIRCL OSINT: OSINT - Hunting for Malware with Machine Learning - Evora",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf399d-5",
+      "type": "INDICATOR",
+      "identifier": "151f6e3a052ab72e6ac043922415126d19a5085dda1ea70aa7d5c345ef4c905a",
+      "timestamp": "2015-12-18",
+      "relationship": "CIRCL OSINT: OSINT - Hunting for Malware with Machine Learning - Evora",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf399d-6",
+      "type": "INDICATOR",
+      "identifier": "23753c260e48fd092423aceb6300a9b858eeaa113f6f7040305edb545f4da35f",
+      "timestamp": "2015-12-18",
+      "relationship": "CIRCL OSINT: OSINT - Hunting for Malware with Machine Learning - Evora",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf399d-7",
+      "type": "INDICATOR",
+      "identifier": "349d2e0a3be5e567416c1a5abb1a01ddb0e31f4c80d4543fad1a5766fd3b5002",
+      "timestamp": "2015-12-18",
+      "relationship": "CIRCL OSINT: OSINT - Hunting for Malware with Machine Learning - Evora",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf399d-8",
+      "type": "INDICATOR",
+      "identifier": "3d059628f80ca8aa1977c0be001a1c11919f76d983139561e7955af645fa979e",
+      "timestamp": "2015-12-18",
+      "relationship": "CIRCL OSINT: OSINT - Hunting for Malware with Machine Learning - Evora",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf399d-9",
+      "type": "INDICATOR",
+      "identifier": "435590115a89427b28f4b7d90850cf92751e23358f2d198bab1d7a22ff793fba",
+      "timestamp": "2015-12-18",
+      "relationship": "CIRCL OSINT: OSINT - Hunting for Malware with Machine Learning - Evora",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf399d-10",
+      "type": "INDICATOR",
+      "identifier": "52e896c6d22929ade6e0cdc54b6a27afd960658955b8ff92996304820c3a03e4",
+      "timestamp": "2015-12-18",
+      "relationship": "CIRCL OSINT: OSINT - Hunting for Malware with Machine Learning - Evora",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf399d-11",
+      "type": "INDICATOR",
+      "identifier": "5e2de83e9b24ed78f38b7189c3505aee5d710bc1a7be473e96e0aa3630112b84",
+      "timestamp": "2015-12-18",
+      "relationship": "CIRCL OSINT: OSINT - Hunting for Malware with Machine Learning - Evora",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf399d-12",
+      "type": "INDICATOR",
+      "identifier": "6c720a4df2acd644bf7153a0c12c70db4a354b20ed14500bbcc91b3e8eaac522",
+      "timestamp": "2015-12-18",
+      "relationship": "CIRCL OSINT: OSINT - Hunting for Malware with Machine Learning - Evora",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf399d-13",
+      "type": "INDICATOR",
+      "identifier": "7d24387e79a537b17ad4b4d19e24a0010034689d3e2b9812f26d1ad579d21cbe",
+      "timestamp": "2015-12-18",
+      "relationship": "CIRCL OSINT: OSINT - Hunting for Malware with Machine Learning - Evora",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf399d-14",
+      "type": "INDICATOR",
+      "identifier": "81a0f80edf8d41f97d799a81c67e9c8930abaece59a73c1d097ee576c0c8a15c",
+      "timestamp": "2015-12-18",
+      "relationship": "CIRCL OSINT: OSINT - Hunting for Malware with Machine Learning - Evora",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf399d-15",
+      "type": "INDICATOR",
+      "identifier": "89db78dcf95e887ddf0818016fa5988e44d23d87c6922bd81dfb3c68ef6cfe93",
+      "timestamp": "2015-12-18",
+      "relationship": "CIRCL OSINT: OSINT - Hunting for Malware with Machine Learning - Evora",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56c44d9a-1",
+      "type": "INDICATOR",
+      "identifier": "https://www.proofpoint.com/us/threat-insight/post/Dridex-Actors-Get-In-the-Ransomware-Game-With-Locky",
+      "timestamp": "2016-02-17",
+      "relationship": "CIRCL OSINT: OSINT - Dridex Actors Get In the Ransomware Game With \"Locky\"",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56c44d9a-2",
+      "type": "INDICATOR",
+      "identifier": "Proofpoint researchers have discovered a new ransomware named \"Locky\" being distributed via MS Word documents with malicious macros. While a variety of new ransomware has appeared since the end of 2015, Locky stands out because it is being delivered by the same actor behind many of the Dridex campaigns we have tracked over the last year.",
+      "timestamp": "2016-02-17",
+      "relationship": "CIRCL OSINT: OSINT - Dridex Actors Get In the Ransomware Game With \"Locky\"",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56c44d9a-3",
+      "type": "INDICATOR",
+      "identifier": "http://6dtxgqam4crv6rr6.tor2web.org",
+      "timestamp": "2016-02-17",
+      "relationship": "CIRCL OSINT: OSINT - Dridex Actors Get In the Ransomware Game With \"Locky\" - Payment URIs (Locky asks user to click these links)",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56c44d9a-4",
+      "type": "INDICATOR",
+      "identifier": "http://6dtxgqam4crv6rr6.onion.to",
+      "timestamp": "2016-02-17",
+      "relationship": "CIRCL OSINT: OSINT - Dridex Actors Get In the Ransomware Game With \"Locky\" - Payment URIs (Locky asks user to click these links)",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56c44d9a-5",
+      "type": "INDICATOR",
+      "identifier": "http://6dtxgqam4crv6rr6.onion.cab",
+      "timestamp": "2016-02-17",
+      "relationship": "CIRCL OSINT: OSINT - Dridex Actors Get In the Ransomware Game With \"Locky\" - Payment URIs (Locky asks user to click these links)",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56c44d9a-6",
+      "type": "INDICATOR",
+      "identifier": "http://6dtxgqam4crv6rr6.onion.link",
+      "timestamp": "2016-02-17",
+      "relationship": "CIRCL OSINT: OSINT - Dridex Actors Get In the Ransomware Game With \"Locky\" - Payment URIs (Locky asks user to click these links)",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56c44d9a-7",
+      "type": "INDICATOR",
+      "identifier": "https://6dtxgqam4crv6rr6.onion",
+      "timestamp": "2016-02-17",
+      "relationship": "CIRCL OSINT: OSINT - Dridex Actors Get In the Ransomware Game With \"Locky\" - Payment URIs (Locky asks user to click these links)",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56c44d9a-8",
+      "type": "INDICATOR",
+      "identifier": "http://109.234.38.35/main.php",
+      "timestamp": "2016-02-17",
+      "relationship": "CIRCL OSINT: OSINT - Dridex Actors Get In the Ransomware Game With \"Locky\" - Locky C2",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56c44d9a-9",
+      "type": "INDICATOR",
+      "identifier": "http://lneqqkvxxogomu.eu/main.php",
+      "timestamp": "2016-02-17",
+      "relationship": "CIRCL OSINT: OSINT - Dridex Actors Get In the Ransomware Game With \"Locky\" - Locky C2",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56c44d9a-10",
+      "type": "INDICATOR",
+      "identifier": "http://qpdar.pw/main.php",
+      "timestamp": "2016-02-17",
+      "relationship": "CIRCL OSINT: OSINT - Dridex Actors Get In the Ransomware Game With \"Locky\" - Locky C2",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56c44d9a-11",
+      "type": "INDICATOR",
+      "identifier": "http://ydbayd.de/main.php",
+      "timestamp": "2016-02-17",
+      "relationship": "CIRCL OSINT: OSINT - Dridex Actors Get In the Ransomware Game With \"Locky\" - Locky C2",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56c44d9a-12",
+      "type": "INDICATOR",
+      "identifier": "http://ssojravpf.be/main.php",
+      "timestamp": "2016-02-17",
+      "relationship": "CIRCL OSINT: OSINT - Dridex Actors Get In the Ransomware Game With \"Locky\" - Locky C2",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56c44d9a-13",
+      "type": "INDICATOR",
+      "identifier": "http://gioaqjklhoxf.eu/main.php",
+      "timestamp": "2016-02-17",
+      "relationship": "CIRCL OSINT: OSINT - Dridex Actors Get In the Ransomware Game With \"Locky\" - Locky C2",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56c44d9a-14",
+      "type": "INDICATOR",
+      "identifier": "http://txlmnqnunppnpuq.ru/main.php",
+      "timestamp": "2016-02-17",
+      "relationship": "CIRCL OSINT: OSINT - Dridex Actors Get In the Ransomware Game With \"Locky\" - Locky C2",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56c44d9a-15",
+      "type": "INDICATOR",
+      "identifier": "http://www.iglobali.com/34gf5y/r34f3345g.exe",
+      "timestamp": "2016-02-17",
+      "relationship": "CIRCL OSINT: OSINT - Dridex Actors Get In the Ransomware Game With \"Locky\" - Payloads downloaded by macro",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56cdcbde-1",
+      "type": "INDICATOR",
+      "identifier": "https://www.cylance.com/new-security-research-from-cylance-spear-team-uncovers-multi-year-multi-attack-campaign-targeting-japanese-critical-infrastructure",
+      "timestamp": "2016-02-23",
+      "relationship": "CIRCL OSINT: OSINT Dust Storm Campaign Targeting Japanese Critical Infrastructure",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56cdcbde-2",
+      "type": "INDICATOR",
+      "identifier": "https://www.cylance.com/hubfs/2015_cylance_website/assets/operation-dust-storm/Op_Dust_Storm_Report.pdf",
+      "timestamp": "2016-02-23",
+      "relationship": "CIRCL OSINT: OSINT Dust Storm Campaign Targeting Japanese Critical Infrastructure",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56cdcbde-3",
+      "type": "INDICATOR",
+      "identifier": "Dust Storm",
+      "timestamp": "2016-02-23",
+      "relationship": "CIRCL OSINT: OSINT Dust Storm Campaign Targeting Japanese Critical Infrastructure",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56cdcbde-4",
+      "type": "INDICATOR",
+      "identifier": "218.106.246.195",
+      "timestamp": "2016-02-23",
+      "relationship": "CIRCL OSINT: OSINT Dust Storm Campaign Targeting Japanese Critical Infrastructure - 2010 C2 IP",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56cdcbde-5",
+      "type": "INDICATOR",
+      "identifier": "218.106.246.220",
+      "timestamp": "2016-02-23",
+      "relationship": "CIRCL OSINT: OSINT Dust Storm Campaign Targeting Japanese Critical Infrastructure - 2010 C2 IP",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56cdcbde-6",
+      "type": "INDICATOR",
+      "identifier": "218.106.246.254",
+      "timestamp": "2016-02-23",
+      "relationship": "CIRCL OSINT: OSINT Dust Storm Campaign Targeting Japanese Critical Infrastructure - 2010 C2 IP",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56cdcbde-7",
+      "type": "INDICATOR",
+      "identifier": "111.67.199.213",
+      "timestamp": "2016-02-23",
+      "relationship": "CIRCL OSINT: OSINT Dust Storm Campaign Targeting Japanese Critical Infrastructure - 2010 C2 IP",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56cdcbde-8",
+      "type": "INDICATOR",
+      "identifier": "125.46.42.221",
+      "timestamp": "2016-02-23",
+      "relationship": "CIRCL OSINT: OSINT Dust Storm Campaign Targeting Japanese Critical Infrastructure - 2010 C2 IP",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56cdcbde-9",
+      "type": "INDICATOR",
+      "identifier": "124.162.53.224",
+      "timestamp": "2016-02-23",
+      "relationship": "CIRCL OSINT: OSINT Dust Storm Campaign Targeting Japanese Critical Infrastructure - 2010 C2 IP",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56cdcbde-10",
+      "type": "INDICATOR",
+      "identifier": "124.162.53.203",
+      "timestamp": "2016-02-23",
+      "relationship": "CIRCL OSINT: OSINT Dust Storm Campaign Targeting Japanese Critical Infrastructure - 2010 C2 IP",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56cdcbde-11",
+      "type": "INDICATOR",
+      "identifier": "113.11.202.233",
+      "timestamp": "2016-02-23",
+      "relationship": "CIRCL OSINT: OSINT Dust Storm Campaign Targeting Japanese Critical Infrastructure - 2010 C2 IP",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56cdcbde-12",
+      "type": "INDICATOR",
+      "identifier": "bfym2.amazonwikis.com",
+      "timestamp": "2016-02-23",
+      "relationship": "CIRCL OSINT: OSINT Dust Storm Campaign Targeting Japanese Critical Infrastructure - 2010 c2 hostnames",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56cdcbde-13",
+      "type": "INDICATOR",
+      "identifier": "books.sfcorporation.com",
+      "timestamp": "2016-02-23",
+      "relationship": "CIRCL OSINT: OSINT Dust Storm Campaign Targeting Japanese Critical Infrastructure - 2010 c2 hostnames",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56cdcbde-14",
+      "type": "INDICATOR",
+      "identifier": "imnothk.8800.org",
+      "timestamp": "2016-02-23",
+      "relationship": "CIRCL OSINT: OSINT Dust Storm Campaign Targeting Japanese Critical Infrastructure - 2010 c2 hostnames",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56cdcbde-15",
+      "type": "INDICATOR",
+      "identifier": "jiaoshow.9966.org",
+      "timestamp": "2016-02-23",
+      "relationship": "CIRCL OSINT: OSINT Dust Storm Campaign Targeting Japanese Critical Infrastructure - 2010 c2 hostnames",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-568e62b7-1",
+      "type": "INDICATOR",
+      "identifier": "http://pf3a.res4f.com",
+      "timestamp": "2016-01-07",
+      "relationship": "CIRCL OSINT: OSINT - Android-based Smart TVs Hit By Backdoor Spread Via Malicious App - Sites that serve malware to smart TVs",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-568e62b7-2",
+      "type": "INDICATOR",
+      "identifier": "http://www.htvmarket.com",
+      "timestamp": "2016-01-07",
+      "relationship": "CIRCL OSINT: OSINT - Android-based Smart TVs Hit By Backdoor Spread Via Malicious App - Sites that serve malware to smart TVs",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-568e62b7-3",
+      "type": "INDICATOR",
+      "identifier": "http://mak.wak2p.com",
+      "timestamp": "2016-01-07",
+      "relationship": "CIRCL OSINT: OSINT - Android-based Smart TVs Hit By Backdoor Spread Via Malicious App - Sites that serve malware to smart TVs",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-568e62b7-4",
+      "type": "INDICATOR",
+      "identifier": "http://wh.waks2.com",
+      "timestamp": "2016-01-07",
+      "relationship": "CIRCL OSINT: OSINT - Android-based Smart TVs Hit By Backdoor Spread Via Malicious App - Sites that serve malware to smart TVs",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-568e62b7-5",
+      "type": "INDICATOR",
+      "identifier": "https://sites.google.com/site/htvfanshare/2012summer_collection",
+      "timestamp": "2016-01-07",
+      "relationship": "CIRCL OSINT: OSINT - Android-based Smart TVs Hit By Backdoor Spread Via Malicious App - Sites that serve malware to smart TVs",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-568e62b7-6",
+      "type": "INDICATOR",
+      "identifier": "With the year-end shopping season over, many consumers now have new various smart gadgets in their homes. One particularly popular usage of this so-called Internet of Things (IoT) are smart TVs. These TVs are more than just passive display devices; many of them can even run Android apps as well. Some may find these features useful, but these capabilities bring their own risks. (This was something we noted two years ago when we first looked some of the issues of smart TVs.)\r\n\r\nApps that allow users to watch channels from other parts of the world (that would otherwise be unavailable via other methods) are something that many users would find useful. However, some of these apps may put users at risk. These apps contain a backdoor that abuses an old flaw (CVE-2014-7911) in Android versions before Lollipop 5.0 (Cupcake 1.5 to Kitkat 4.4W.2). (We detect these malicious apps as ANDROIDOS_ROOTSTV.A.)\r\n\r\nMost smart TVs today use older versions of Android, which still contain this flaw. TV brands that sell vulnerable smart TVs include Changhong, Konka, Mi, Philips, Panasonic, and Sharp. In addition, other Android devices with older versions installed are also at risk: it just happens to be that because of these kinds of apps are mainly used in smart TVs or smart TV boxes.",
+      "timestamp": "2016-01-07",
+      "relationship": "CIRCL OSINT: OSINT - Android-based Smart TVs Hit By Backdoor Spread Via Malicious App",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-568e62b7-7",
+      "type": "INDICATOR",
+      "identifier": "http://blog.trendmicro.com/trendlabs-security-intelligence/android-based-smart-tvs-hit-by-backdoor-spread-via-malicious-app/",
+      "timestamp": "2016-01-07",
+      "relationship": "CIRCL OSINT: OSINT - Android-based Smart TVs Hit By Backdoor Spread Via Malicious App",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-568e62b7-8",
+      "type": "INDICATOR",
+      "identifier": "meiz.le2ui.com",
+      "timestamp": "2016-01-07",
+      "relationship": "CIRCL OSINT: OSINT - Android-based Smart TVs Hit By Backdoor Spread Via Malicious App - In addition to the websites above, the malware also uses the following download server",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-568e62b7-9",
+      "type": "INDICATOR",
+      "identifier": "http://meiz.le2ui.com:80/marketdatas/apk/chinesevideo2.11.1.apk",
+      "timestamp": "2016-01-07",
+      "relationship": "CIRCL OSINT: OSINT - Android-based Smart TVs Hit By Backdoor Spread Via Malicious App - In addition to the websites above, the malware also uses the following download server",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-568e62b7-10",
+      "type": "INDICATOR",
+      "identifier": "yaz.e3wsv.com",
+      "timestamp": "2016-01-07",
+      "relationship": "CIRCL OSINT: OSINT - Android-based Smart TVs Hit By Backdoor Spread Via Malicious App - In addition to the websites above, the malware also uses the following download server",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-568e62b7-11",
+      "type": "INDICATOR",
+      "identifier": "http://yaz.e3wsv.com:80/marketdatas/apk/chinesevideo2.11.1.apk",
+      "timestamp": "2016-01-07",
+      "relationship": "CIRCL OSINT: OSINT - Android-based Smart TVs Hit By Backdoor Spread Via Malicious App - In addition to the websites above, the malware also uses the following download server",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-568e62b7-12",
+      "type": "INDICATOR",
+      "identifier": "019d4326d3340609b3f8326d51e031cafc6bf9a0",
+      "timestamp": "2016-01-07",
+      "relationship": "CIRCL OSINT: OSINT - Android-based Smart TVs Hit By Backdoor Spread Via Malicious App - Related malware APK",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-568e62b7-13",
+      "type": "INDICATOR",
+      "identifier": "01a0b3fbf3e4e840e6aa441353ff29e4c5bf3e10",
+      "timestamp": "2016-01-07",
+      "relationship": "CIRCL OSINT: OSINT - Android-based Smart TVs Hit By Backdoor Spread Via Malicious App - Related malware APK",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-568e62b7-14",
+      "type": "INDICATOR",
+      "identifier": "0637b9116af595e7451dea655a05c32aa89fcbdb",
+      "timestamp": "2016-01-07",
+      "relationship": "CIRCL OSINT: OSINT - Android-based Smart TVs Hit By Backdoor Spread Via Malicious App - Related malware APK",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-568e62b7-15",
+      "type": "INDICATOR",
+      "identifier": "069138865d4a58b3683f1aa687408b40c92fe9cf",
+      "timestamp": "2016-01-07",
+      "relationship": "CIRCL OSINT: OSINT - Android-based Smart TVs Hit By Backdoor Spread Via Malicious App - Related malware APK",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56587437-1",
+      "type": "INDICATOR",
+      "identifier": "https://www.alienvault.com/open-threat-exchange/blog/botnet-bruteforcing-point-of-sale-via-remote-desktop",
+      "timestamp": "2014-03-11",
+      "relationship": "CIRCL OSINT: OSINT - Botnet bruteforcing Point Of Sale terminals via Remote Desktop",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56587437-2",
+      "type": "INDICATOR",
+      "identifier": "c1fab4a0b7f4404baf8eab4d58b1f821",
+      "timestamp": "2014-03-11",
+      "relationship": "CIRCL OSINT: OSINT - Botnet bruteforcing Point Of Sale terminals via Remote Desktop",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56587437-3",
+      "type": "INDICATOR",
+      "identifier": "c0c1f1a69a1b59c6f2dab18135a73919",
+      "timestamp": "2014-03-11",
+      "relationship": "CIRCL OSINT: OSINT - Botnet bruteforcing Point Of Sale terminals via Remote Desktop",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56587437-4",
+      "type": "INDICATOR",
+      "identifier": "08863d484b1ebe6359144c9a8d8027c0",
+      "timestamp": "2014-03-11",
+      "relationship": "CIRCL OSINT: OSINT - Botnet bruteforcing Point Of Sale terminals via Remote Desktop",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56587437-5",
+      "type": "INDICATOR",
+      "identifier": "78.154.54.42",
+      "timestamp": "2014-03-11",
+      "relationship": "CIRCL OSINT: OSINT - Botnet bruteforcing Point Of Sale terminals via Remote Desktop",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56587437-6",
+      "type": "INDICATOR",
+      "identifier": "7170a07bcb5b0467a75cbd17a1a1877aec3c8ea43c45d3bed6ab5e6c95a62713",
+      "timestamp": "2014-03-11",
+      "relationship": "CIRCL OSINT: OSINT - Botnet bruteforcing Point Of Sale terminals via Remote Desktop - - Xchecked via VT: 08863d484b1ebe6359144c9a8d8027c0",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56587437-7",
+      "type": "INDICATOR",
+      "identifier": "fb357bb5d9c2de75afa69bfec8c22041b02e03df",
+      "timestamp": "2014-03-11",
+      "relationship": "CIRCL OSINT: OSINT - Botnet bruteforcing Point Of Sale terminals via Remote Desktop - - Xchecked via VT: 08863d484b1ebe6359144c9a8d8027c0",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56587437-8",
+      "type": "INDICATOR",
+      "identifier": "https://www.virustotal.com/file/7170a07bcb5b0467a75cbd17a1a1877aec3c8ea43c45d3bed6ab5e6c95a62713/analysis/1445904969/",
+      "timestamp": "2014-03-11",
+      "relationship": "CIRCL OSINT: OSINT - Botnet bruteforcing Point Of Sale terminals via Remote Desktop",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56587437-9",
+      "type": "INDICATOR",
+      "identifier": "4f130a35f440fe0662b4d22844996e3f8bc74693e7c7ce69a5d4789bc36e6c4a",
+      "timestamp": "2014-03-11",
+      "relationship": "CIRCL OSINT: OSINT - Botnet bruteforcing Point Of Sale terminals via Remote Desktop - - Xchecked via VT: c0c1f1a69a1b59c6f2dab18135a73919",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56587437-10",
+      "type": "INDICATOR",
+      "identifier": "e284b886851623a944e6f3d8507314b3217935ce",
+      "timestamp": "2014-03-11",
+      "relationship": "CIRCL OSINT: OSINT - Botnet bruteforcing Point Of Sale terminals via Remote Desktop - - Xchecked via VT: c0c1f1a69a1b59c6f2dab18135a73919",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56587437-11",
+      "type": "INDICATOR",
+      "identifier": "https://www.virustotal.com/file/4f130a35f440fe0662b4d22844996e3f8bc74693e7c7ce69a5d4789bc36e6c4a/analysis/1445913257/",
+      "timestamp": "2014-03-11",
+      "relationship": "CIRCL OSINT: OSINT - Botnet bruteforcing Point Of Sale terminals via Remote Desktop",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56587437-12",
+      "type": "INDICATOR",
+      "identifier": "47f5b249f9a7524f908dfaf16102d3acc9dd4154ff8e8a8b8d96ac49ebef26a0",
+      "timestamp": "2014-03-11",
+      "relationship": "CIRCL OSINT: OSINT - Botnet bruteforcing Point Of Sale terminals via Remote Desktop - - Xchecked via VT: c1fab4a0b7f4404baf8eab4d58b1f821",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56587437-13",
+      "type": "INDICATOR",
+      "identifier": "f63479cd40b56652721a95f059dedfb96478bbaa",
+      "timestamp": "2014-03-11",
+      "relationship": "CIRCL OSINT: OSINT - Botnet bruteforcing Point Of Sale terminals via Remote Desktop - - Xchecked via VT: c1fab4a0b7f4404baf8eab4d58b1f821",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56587437-14",
+      "type": "INDICATOR",
+      "identifier": "https://www.virustotal.com/file/47f5b249f9a7524f908dfaf16102d3acc9dd4154ff8e8a8b8d96ac49ebef26a0/analysis/1408612721/",
+      "timestamp": "2014-03-11",
+      "relationship": "CIRCL OSINT: OSINT - Botnet bruteforcing Point Of Sale terminals via Remote Desktop",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf4797-1",
+      "type": "INDICATOR",
+      "identifier": "http://blog.passivetotal.org/harnessing-ssl-certificates-using-infrastructure-chaining/",
+      "timestamp": "2016-02-13",
+      "relationship": "CIRCL OSINT: OSINT - Turla - Harnessing SSL Certificates Using Infrastructure Chaining",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf4797-2",
+      "type": "INDICATOR",
+      "identifier": "trytowin.ignorelist.com",
+      "timestamp": "2016-02-13",
+      "relationship": "CIRCL OSINT: OSINT - Turla - Harnessing SSL Certificates Using Infrastructure Chaining - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf4797-3",
+      "type": "INDICATOR",
+      "identifier": "treesofter.mooo.com",
+      "timestamp": "2016-02-13",
+      "relationship": "CIRCL OSINT: OSINT - Turla - Harnessing SSL Certificates Using Infrastructure Chaining - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf4797-4",
+      "type": "INDICATOR",
+      "identifier": "sportinfo.yourtrap.com",
+      "timestamp": "2016-02-13",
+      "relationship": "CIRCL OSINT: OSINT - Turla - Harnessing SSL Certificates Using Infrastructure Chaining - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf4797-5",
+      "type": "INDICATOR",
+      "identifier": "profound.zzux.com",
+      "timestamp": "2016-02-13",
+      "relationship": "CIRCL OSINT: OSINT - Turla - Harnessing SSL Certificates Using Infrastructure Chaining - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf4797-6",
+      "type": "INDICATOR",
+      "identifier": "badget.ignorelist.com",
+      "timestamp": "2016-02-13",
+      "relationship": "CIRCL OSINT: OSINT - Turla - Harnessing SSL Certificates Using Infrastructure Chaining - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf4797-7",
+      "type": "INDICATOR",
+      "identifier": "norwaynews.mooo.com",
+      "timestamp": "2016-02-13",
+      "relationship": "CIRCL OSINT: OSINT - Turla - Harnessing SSL Certificates Using Infrastructure Chaining - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf4797-8",
+      "type": "INDICATOR",
+      "identifier": "dellservice.publicvm.com",
+      "timestamp": "2016-02-13",
+      "relationship": "CIRCL OSINT: OSINT - Turla - Harnessing SSL Certificates Using Infrastructure Chaining - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf4797-9",
+      "type": "INDICATOR",
+      "identifier": "priceline.publicvm.com",
+      "timestamp": "2016-02-13",
+      "relationship": "CIRCL OSINT: OSINT - Turla - Harnessing SSL Certificates Using Infrastructure Chaining - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf4797-10",
+      "type": "INDICATOR",
+      "identifier": "forumgeek.zzux.com",
+      "timestamp": "2016-02-13",
+      "relationship": "CIRCL OSINT: OSINT - Turla - Harnessing SSL Certificates Using Infrastructure Chaining - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf4797-11",
+      "type": "INDICATOR",
+      "identifier": "mouses.strangled.net",
+      "timestamp": "2016-02-13",
+      "relationship": "CIRCL OSINT: OSINT - Turla - Harnessing SSL Certificates Using Infrastructure Chaining - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf4797-12",
+      "type": "INDICATOR",
+      "identifier": "209.239.79.69",
+      "timestamp": "2016-02-13",
+      "relationship": "CIRCL OSINT: OSINT - Turla - Harnessing SSL Certificates Using Infrastructure Chaining - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf4797-13",
+      "type": "INDICATOR",
+      "identifier": "82.146.174.240",
+      "timestamp": "2016-02-13",
+      "relationship": "CIRCL OSINT: OSINT - Turla - Harnessing SSL Certificates Using Infrastructure Chaining - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf4797-14",
+      "type": "INDICATOR",
+      "identifier": "82.146.166.61",
+      "timestamp": "2016-02-13",
+      "relationship": "CIRCL OSINT: OSINT - Turla - Harnessing SSL Certificates Using Infrastructure Chaining - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56bf4797-15",
+      "type": "INDICATOR",
+      "identifier": "193.220.55.6",
+      "timestamp": "2016-02-13",
+      "relationship": "CIRCL OSINT: OSINT - Turla - Harnessing SSL Certificates Using Infrastructure Chaining - Imported via the freetext import.",
+      "confidence": "Medium",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d42420-1",
+      "type": "INDICATOR",
+      "identifier": "https://securelist.com/blog/research/73866/atmzombie-banking-trojan-in-israeli-waters/",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - ATMZombie: banking trojan in Israeli waters",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d42420-2",
+      "type": "INDICATOR",
+      "identifier": "On November 2015, Kaspersky Lab researchers identified ATMZombie, a banking Trojan that is considered to be the first malware to ever steal money from Israeli banks. It uses insidious injection and other sophisticated and stealthy methods. The first method, dubbed â€œproxy-changingâ€, is commonly used for HTTP packets inspections. It involves modifying browser proxy configurations and capturing traffic between a client and a server, acting as Man-In-The-Middle.\r\n\r\nAlthough this is efficient for testing, streaming bank details isnâ€™t as easy. Banks are using encrypted channels, signed with authorized certificates, to prevent the data from being streamed in clear-text. The attackers, however, realized the missing piece and have since issued a certificate of their own, which is embedded in the dropper and is inserted in the root CA list of common browsers in the victimâ€™s machine.\r\n\r\nThe method of using a â€œproxy-changerâ€ Trojan to steal bank credentials has been around since the end of 2005, and is being actively used by Brazilian cybercriminals; however, it wasnâ€™t until 2012 that Kaspersky Lab researchers compiled a full attack analysis. â€œIn Brazil malicious PAC files in Trojan bankers have been increasingly common since 2009, when several families such as Trojan.Win32.ProxyChanger started to force the URLs of PAC files in the browser of infected machines.â€œ, said Fabio Assolini, Senior Security Researcher at GReAT Kaspersky Lab, in his article.",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - ATMZombie: banking trojan in Israeli waters",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d42420-3",
+      "type": "INDICATOR",
+      "identifier": "retsback.com",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - ATMZombie: banking trojan in Israeli waters",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d42420-4",
+      "type": "INDICATOR",
+      "identifier": "updconfs.com",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - ATMZombie: banking trojan in Israeli waters",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d42420-5",
+      "type": "INDICATOR",
+      "identifier": "systruster.com",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - ATMZombie: banking trojan in Israeli waters",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d42420-6",
+      "type": "INDICATOR",
+      "identifier": "msupdcheck.com",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - ATMZombie: banking trojan in Israeli waters",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d42420-7",
+      "type": "INDICATOR",
+      "identifier": "91.230.211.206",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - ATMZombie: banking trojan in Israeli waters",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d42420-8",
+      "type": "INDICATOR",
+      "identifier": "185.86.77.153",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - ATMZombie: banking trojan in Israeli waters",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d42420-9",
+      "type": "INDICATOR",
+      "identifier": "91.215.154.90",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - ATMZombie: banking trojan in Israeli waters",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d42420-10",
+      "type": "INDICATOR",
+      "identifier": "88.214.236.121",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - ATMZombie: banking trojan in Israeli waters",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d42420-11",
+      "type": "INDICATOR",
+      "identifier": "6d11090c78e6621c21836c98808ff0f4",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - ATMZombie: banking trojan in Israeli waters - Trojan-Banker.Win32.Capper.zym",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d42420-12",
+      "type": "INDICATOR",
+      "identifier": "4c5b7a8187475be251d05655edcaccbe",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - ATMZombie: banking trojan in Israeli waters - Trojan-Banker.Win32.Capper.zyt",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d42420-13",
+      "type": "INDICATOR",
+      "identifier": "c0201ab2a45bc0e17ebd186059d5a59e",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - ATMZombie: banking trojan in Israeli waters - Trojan-Banker.Win32.Capper.zyk",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d42420-14",
+      "type": "INDICATOR",
+      "identifier": "47b316e3227d618089eb1625c4202142",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - ATMZombie: banking trojan in Israeli waters - Trojan-Banker.Win32.Capper.zyl",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d42420-15",
+      "type": "INDICATOR",
+      "identifier": "84bb5a77e28b3539a8022bc3612d4f4c",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - ATMZombie: banking trojan in Israeli waters - PAC",
+      "confidence": "Low",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d4b32d-1",
+      "type": "INDICATOR",
+      "identifier": "2ee9e9d9a0cd3cee6519e7b950821d5c90af03da665879615e52fd093dd8e947",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - New Hacking team samples (OSX) - ZIP with dropper",
+      "confidence": "High",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d4b32d-2",
+      "type": "INDICATOR",
+      "identifier": "58e4e4853c6cfbb43afd49e5238046596ee5b78eca439c7d76bd95a34115a273",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - New Hacking team samples (OSX) - Dropper binary",
+      "confidence": "High",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d4b32d-3",
+      "type": "INDICATOR",
+      "identifier": "212.71.254.212",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - New Hacking team samples (OSX) - C&C",
+      "confidence": "High",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d4b32d-4",
+      "type": "INDICATOR",
+      "identifier": "https://reverse.put.as/2016/02/29/the-italian-morons-are-back-what-are-they-up-to-this-time/",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - New Hacking team samples (OSX) - Imported via the freetext import.",
+      "confidence": "High",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d4b32d-5",
+      "type": "INDICATOR",
+      "identifier": "df0c428657f8d317a9617a209ed1998860f22c42",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - New Hacking team samples (OSX) - Dropper binary - Xchecked via VT: 58e4e4853c6cfbb43afd49e5238046596ee5b78eca439c7d76bd95a34115a273",
+      "confidence": "High",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d4b32d-6",
+      "type": "INDICATOR",
+      "identifier": "e2b81bed4472087dca00bee18acbce04",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - New Hacking team samples (OSX) - Dropper binary - Xchecked via VT: 58e4e4853c6cfbb43afd49e5238046596ee5b78eca439c7d76bd95a34115a273",
+      "confidence": "High",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d4b32d-7",
+      "type": "INDICATOR",
+      "identifier": "https://www.virustotal.com/file/58e4e4853c6cfbb43afd49e5238046596ee5b78eca439c7d76bd95a34115a273/analysis/1456779730/",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - New Hacking team samples (OSX)",
+      "confidence": "High",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d4b32d-8",
+      "type": "INDICATOR",
+      "identifier": "64341827760eb2d4ac4107b6d18c6942d3d69cba",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - New Hacking team samples (OSX) - ZIP with dropper - Xchecked via VT: 2ee9e9d9a0cd3cee6519e7b950821d5c90af03da665879615e52fd093dd8e947",
+      "confidence": "High",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d4b32d-9",
+      "type": "INDICATOR",
+      "identifier": "92d4556d3d594b987044106388d484b3",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - New Hacking team samples (OSX) - ZIP with dropper - Xchecked via VT: 2ee9e9d9a0cd3cee6519e7b950821d5c90af03da665879615e52fd093dd8e947",
+      "confidence": "High",
+      "status": "Observed"
+    },
+    {
+      "id": "CIRCL-EV-56d4b32d-10",
+      "type": "INDICATOR",
+      "identifier": "https://www.virustotal.com/file/2ee9e9d9a0cd3cee6519e7b950821d5c90af03da665879615e52fd093dd8e947/analysis/1456767669/",
+      "timestamp": "2016-02-29",
+      "relationship": "CIRCL OSINT: OSINT - New Hacking team samples (OSX)",
+      "confidence": "High",
+      "status": "Observed"
+    }
+  ],
+  "timeline": [],
+  "opsec": {
+    "actor_id": "ACT-AUTH-001",
+    "labels": [],
+    "values": [],
+    "description": "Not available from source. Public CIRCL OSINT feeds do not publish operational security exposure telemetry."
+  },
+  "graph": {
+    "nodes": [],
+    "edges": []
+  }
+}
