@@ -1,0 +1,635 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SHADOWTRACE — Project Submission Report</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.65;
+    background: #ffffff;
+    color: #1f2328;
+    padding: 40px 20px 60px;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  /* ---- HEADER ---- */
+  .cover {
+    background: #0d1117;
+    color: #c9d1d9;
+    border-radius: 8px;
+    padding: 36px 40px;
+    margin-bottom: 36px;
+  }
+  .cover-title {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #58a6ff;
+    font-family: "Courier New", monospace;
+  }
+  .cover-sub {
+    font-size: 13px;
+    color: #8b949e;
+    margin-top: 6px;
+    letter-spacing: 1px;
+    font-family: "Courier New", monospace;
+  }
+  .cover-meta {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .meta-pill {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: #79c0ff;
+    font-family: "Courier New", monospace;
+  }
+  .meta-pill span { color: #8b949e; margin-right: 4px; }
+  .disclaimer-banner {
+    margin-top: 20px;
+    background: #161b22;
+    border-left: 4px solid #f0883e;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: #e3b341;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* ---- SECTION HEADERS ---- */
+  h1 { font-size: 20px; font-weight: 700; color: #1f2328; margin: 32px 0 10px; border-bottom: 2px solid #e5e7eb; padding-bottom: 6px; }
+  h2 { font-size: 16px; font-weight: 600; color: #1f2328; margin: 24px 0 8px; }
+  h3 { font-size: 14px; font-weight: 600; color: #1f2328; margin: 16px 0 6px; }
+
+  p { margin-bottom: 10px; color: #1f2328; }
+
+  /* ---- BADGE LABELS ---- */
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 0 2px;
+    vertical-align: middle;
+  }
+  .badge-blue   { background: #dbeafe; color: #1d4ed8; }
+  .badge-green  { background: #dcfce7; color: #15803d; }
+  .badge-amber  { background: #fef9c3; color: #854d0e; }
+  .badge-purple { background: #ede9fe; color: #6d28d9; }
+  .badge-red    { background: #fee2e2; color: #b91c1c; }
+  .badge-gray   { background: #f1f5f9; color: #475569; }
+
+  /* ---- PHASE TABLE ---- */
+  table { width: 100%; border-collapse: collapse; margin: 14px 0 20px; font-size: 13px; }
+  th { background: #f7f8fa; font-weight: 600; padding: 8px 12px; text-align: left; border: 1px solid #e5e7eb; color: #57606a; }
+  td { padding: 8px 12px; border: 1px solid #e5e7eb; vertical-align: top; }
+  tr:nth-child(even) td { background: #fafbfc; }
+
+  /* ---- COMPONENT BOX ---- */
+  .component-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0 20px;
+  }
+  @media (max-width: 560px) { .component-grid { grid-template-columns: 1fr; } }
+
+  .comp-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 14px;
+    background: #f7f8fa;
+  }
+  .comp-card h3 { margin: 0 0 6px; font-size: 13px; color: #3b82d4; }
+  .comp-card p  { margin: 0; font-size: 12px; color: #57606a; }
+  .comp-card code { font-family: "Courier New", monospace; font-size: 11px; color: #6d28d9; background: #ede9fe; padding: 1px 4px; border-radius: 3px; }
+
+  /* ---- API ENDPOINT BLOCK ---- */
+  .api-group { margin: 12px 0 18px; }
+  .api-group-title { font-size: 12px; font-weight: 700; color: #57606a; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .api-row { display: flex; align-items: baseline; gap: 10px; padding: 5px 8px; border-radius: 4px; margin-bottom: 3px; font-size: 12px; }
+  .api-row:hover { background: #f7f8fa; }
+  .method { font-weight: 700; font-family: "Courier New", monospace; font-size: 11px; padding: 2px 6px; border-radius: 3px; min-width: 44px; text-align: center; }
+  .get  { background: #dcfce7; color: #15803d; }
+  .post { background: #dbeafe; color: #1d4ed8; }
+  .path { font-family: "Courier New", monospace; font-size: 12px; color: #1f2328; }
+  .api-desc { color: #57606a; font-size: 12px; }
+
+  /* ---- STAT ROW ---- */
+  .stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 14px 0 20px;
+  }
+  .stat-card {
+    flex: 1 1 120px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 12px 16px;
+    background: #f7f8fa;
+    text-align: center;
+  }
+  .stat-num { font-size: 24px; font-weight: 700; color: #3b82d4; line-height: 1.1; }
+  .stat-label { font-size: 11px; color: #57606a; margin-top: 4px; }
+
+  /* ---- SIGNAL TABLE ---- */
+  .signal-row { display: flex; align-items: center; gap: 10px; padding: 6px 0; border-bottom: 1px solid #f1f5f9; font-size: 13px; }
+  .signal-row:last-child { border-bottom: none; }
+  .signal-name { flex: 1; font-weight: 500; }
+  .signal-weight { color: #57606a; font-family: "Courier New", monospace; min-width: 40px; text-align: right; }
+  .bar-wrap { flex: 2; height: 8px; background: #e5e7eb; border-radius: 4px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; background: #3b82d4; }
+
+  /* ---- CODE INLINE ---- */
+  code { font-family: "Courier New", monospace; font-size: 12px; background: #f1f5f9; padding: 1px 5px; border-radius: 3px; color: #0d1117; }
+
+  /* ---- TEST ROW ---- */
+  .test-list { list-style: none; margin: 10px 0 18px; }
+  .test-list li { display: flex; align-items: center; gap: 10px; padding: 5px 0; border-bottom: 1px solid #f1f5f9; font-size: 13px; }
+  .test-list li:last-child { border-bottom: none; }
+  .test-pass { color: #15803d; font-weight: 700; font-size: 13px; }
+
+  /* ---- CALLOUT ---- */
+  .callout { border-left: 4px solid #3b82d4; background: #eff6ff; padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 14px 0; font-size: 13px; }
+  .callout.warn { border-color: #f0883e; background: #fff7ed; }
+  .callout.ok   { border-color: #15803d; background: #f0fdf4; }
+
+  /* ---- FOOTER ---- */
+  footer {
+    margin-top: 48px;
+    padding-top: 14px;
+    border-top: 1px solid #e5e7eb;
+    text-align: center;
+    font-size: 12px;
+    color: #57606a;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  
+  <div class="cover">
+    <div class="cover-title">// SHADOWTRACE</div>
+    <div class="cover-sub">THREAT ACTOR INTELLIGENCE &amp; IDENTITY CORRELATION PLATFORM — PROJECT SUBMISSION REPORT</div>
+    <div class="cover-meta">
+      <div class="meta-pill"><span>Version:</span> 1.0.0</div>
+      <div class="meta-pill"><span>Stack:</span> FastAPI · Python · Vanilla JS</div>
+      <div class="meta-pill"><span>Tests:</span> 672 Passing · 0 Failed</div>
+      <div class="meta-pill"><span>Phases:</span> 1 → 6.4 Complete</div>
+      <div class="meta-pill"><span>Mode:</span> Defensive CTI Research</div>
+    </div>
+    <div class="disclaimer-banner">
+      ⚠ All baseline threat actor personas (ShadowX, CipherPhantom, GhostWeaver) and evidence items are entirely synthetic demo artifacts. Correlation scores are analytical signals, not proof of real-world identity attribution.
+    </div>
+  </div>
+
+
+  
+  <h1>1. Project Overview</h1>
+  <p>
+    <strong>SHADOWTRACE</strong> is a full-stack defensive cybersecurity research platform that ingests,
+    correlates, and exports threat actor intelligence using both synthetic training data and authorized
+    public CTI feeds. It is designed to demonstrate how multi-signal ensemble correlation, OPSEC hygiene
+    tracking, and STIX 2.1 intelligence sharing can work together in a single operator-facing platform
+    without any dark-web, Tor, or unauthorized network access.
+  </p>
+  <p>
+    The platform ships with a dark-themed single-page command-center dashboard served directly from
+    FastAPI, providing real-time correlation analytics, interactive relationship graphs, timeline
+    investigation tracking, and one-click export to STIX 2.1 and Markdown briefings.
+  </p>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Development Phases</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">672</div>
+      <div class="stat-label">Automated Tests Passing</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">14</div>
+      <div class="stat-label">Test Suites</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Synthetic Case Datasets</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">30+</div>
+      <div class="stat-label">REST API Endpoints</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">2.1</div>
+      <div class="stat-label">STIX Spec Version</div>
+    </div>
+  </div>
+
+
+  
+  <h1>2. Technology Stack</h1>
+
+  <table>
+    <tr><th>Layer</th><th>Technology</th><th>Purpose</th></tr>
+    <tr><td>API Server</td><td><code>FastAPI</code> + <code>Uvicorn[standard]</code></td><td>ASGI backend, route management, OpenAPI docs auto-generation</td></tr>
+    <tr><td>Data Models</td><td><code>Pydantic v2</code></td><td>Strict typed schemas for actors, evidence, feeds, STIX models</td></tr>
+    <tr><td>Frontend</td><td>Vanilla JS + CSS3</td><td>Single-page dashboard, CRT effect, live clock, graph canvas</td></tr>
+    <tr><td>Feeds</td><td>Python <code>urllib</code> (stdlib)</td><td>Zero-dependency HTTPS feed adapter — no third-party HTTP libs</td></tr>
+    <tr><td>Hashing</td><td>Python <code>hashlib</code> (stdlib)</td><td>SHA-256 canonical evidence integrity hashing</td></tr>
+    <tr><td>Export</td><td>Python <code>uuid</code> + <code>json</code> (stdlib)</td><td>STIX 2.1 deterministic UUIDv5 bundle generation</td></tr>
+    <tr><td>Audit Log</td><td>JSONL append-only file</td><td>Immutable audit trail — no database dependency</td></tr>
+    <tr><td>Tests</td><td><code>pytest 9.1.1</code></td><td>14 test suites, 672 tests covering all phases</td></tr>
+  </table>
+
+  <div class="callout ok">
+    <strong>Key Design Principle:</strong> The entire platform runs offline with zero external dependencies beyond
+    <code>fastapi</code>, <code>uvicorn</code>, and <code>pydantic</code>. All intelligence operations, hashing, UUID generation,
+    and STIX export use the Python standard library exclusively.
+  </div>
+
+
+  
+  <h1>3. System Architecture</h1>
+
+  <div class="component-grid">
+    <div class="comp-card">
+      <h3>backend/main.py</h3>
+      <p>FastAPI application shell. Mounts all domain routers, serves static frontend assets, provides <code>/api/health</code> probe.</p>
+    </div>
+    <div class="comp-card">
+      <h3>backend/models.py</h3>
+      <p>All Pydantic schemas: <code>Case</code>, <code>Actor</code>, <code>Evidence</code>, <code>CorrelationAssessment</code>, STIX, MISP, CIRCL models (35+ types).</p>
+    </div>
+    <div class="comp-card">
+      <h3>backend/correlation_engine.py</h3>
+      <p>Core analytics — Levenshtein, Jaro-Winkler, n-gram algorithms + 5-dimension ensemble correlation with dynamic weight renormalization.</p>
+    </div>
+    <div class="comp-card">
+      <h3>backend/provenance.py</h3>
+      <p>SHA-256 canonical integrity hashing with Admiralty A-1 / B-2 provenance metadata. Strict boundary between observed data and analytical conclusions.</p>
+    </div>
+    <div class="comp-card">
+      <h3>backend/stix_export.py</h3>
+      <p>STIX 2.1 bundle builder. Generates deterministic UUIDv5 objects for threat-actor, observed-data, indicator, relationship, and report SDOs.</p>
+    </div>
+    <div class="comp-card">
+      <h3>backend/audit.py</h3>
+      <p>Append-only JSONL audit logger. Sanitizes all log writes to prevent credential leakage. Supports reverse-chronological query filtering.</p>
+    </div>
+    <div class="comp-card">
+      <h3>backend/reporting.py</h3>
+      <p>9-section structured JSON report generator + professional Markdown briefing formatter. Differentiates synthetic vs. authorized CTI metadata.</p>
+    </div>
+    <div class="comp-card">
+      <h3>backend/authorized_adapter.py</h3>
+      <p>Read-only MISP REST adapter (<code>MISPAdapter</code>) and public CIRCL OSINT feed adapter (<code>CIRCLFeedAdapter</code>). SSL-verified, API-key-safe, pull-only.</p>
+    </div>
+    <div class="comp-card">
+      <h3>backend/data_store.py</h3>
+      <p>Multi-case JSON registry. Isolated storage layer, CIRCL sync state management, authorized MISP container appends.</p>
+    </div>
+    <div class="comp-card">
+      <h3>backend/routers/</h3>
+      <p>7 domain routers: <code>cases</code>, <code>actors</code>, <code>evidence</code>, <code>analytics</code>, <code>search</code>, <code>reports</code>, <code>feeds</code> (MISP + CIRCL).</p>
+    </div>
+    <div class="comp-card">
+      <h3>frontend/</h3>
+      <p>SPA dashboard with dark cyber-ops theme, CRT scanlines, Matrix canvas, live UTC clock, 12-section navigation, modal dialogs, toast notifications.</p>
+    </div>
+    <div class="comp-card">
+      <h3>data/cases/</h3>
+      <p>4 case JSON files: <code>CASE-2026-09X</code> (ShadowX), <code>CASE-2026-02B</code> (CipherPhantom), <code>CASE-2026-03C</code> (GhostWeaver), <code>CASE-AUTH-MISP</code> (live feed container).</p>
+    </div>
+  </div>
+
+
+  
+  <h1>4. Development Phases &amp; Feature Delivery</h1>
+
+  <table>
+    <tr><th>Phase</th><th>Feature Set</th><th>Status</th></tr>
+    <tr>
+      <td><strong>Phase 1</strong></td>
+      <td>Core FastAPI platform — case catalog, actor profiles, evidence catalog, graph, timeline, metrics, search, health endpoints</td>
+      <td><span class="badge badge-green">✓ Complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>Phase 2</strong></td>
+      <td>Correlation Engine — Levenshtein + Jaro-Winkler + n-gram alias similarity, 5-dimension ensemble correlation, OPSEC decay analysis</td>
+      <td><span class="badge badge-green">✓ Complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>Phase 3</strong></td>
+      <td>Multi-case registry, interactive graph node inspection, actor drill-down dossier (correlation + OPSEC + evidence + graph in one call)</td>
+      <td><span class="badge badge-green">✓ Complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>Phase 4</strong></td>
+      <td>SHA-256 evidence provenance with Admiralty ratings, append-only JSONL audit logger, STIX 2.1 export, structured 9-section JSON + Markdown reports</td>
+      <td><span class="badge badge-green">✓ Complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>Phase 5</strong></td>
+      <td>OPSEC isolation safeguards — synthetic vs. authorized data delineation, credential sanitization, safe-mode fallback for unconfigured MISP</td>
+      <td><span class="badge badge-green">✓ Complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>Phase 6.1</strong></td>
+      <td>MISPAdapter — SSL-verified read-only REST adapter with API key protection, HTTP error handling, connection probe</td>
+      <td><span class="badge badge-green">✓ Complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>Phase 6.2</strong></td>
+      <td>MISP Feeds API — /status, /test-connection, /preview, /import, /evidence routes with offline demo fallback</td>
+      <td><span class="badge badge-green">✓ Complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>Phase 6.3</strong></td>
+      <td>CIRCLFeedAdapter — public OSINT feed, UUID-validated event fetch, strict case isolation to CASE-AUTH-MISP</td>
+      <td><span class="badge badge-green">✓ Complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>Phase 6.4</strong></td>
+      <td>Incremental CIRCL feed polling — deduplication, bounded execution, persistent sync state, end-to-end integration tests</td>
+      <td><span class="badge badge-green">✓ Complete</span></td>
+    </tr>
+  </table>
+
+
+  
+  <h1>5. Correlation Engine — Multi-Signal Ensemble</h1>
+  <p>
+    The correlation engine combines five independent analytical dimensions into a single weighted confidence score.
+    When a signal is unavailable (e.g. authorized CTI feeds don't publish stylometry data), the engine
+    <strong>renormalizes weights dynamically</strong> across only the available signals — it never treats
+    missing data as zero or as a positive contribution.
+  </p>
+
+  <div style="margin:14px 0 20px">
+    <div class="signal-row">
+      <div class="signal-name">Cryptographic &amp; Wallet Reuse</div>
+      <div class="signal-weight">35%</div>
+      <div class="bar-wrap"><div class="bar-fill" style="width:100%"></div></div>
+    </div>
+    <div class="signal-row">
+      <div class="signal-name">Alias String Similarity</div>
+      <div class="signal-weight">20%</div>
+      <div class="bar-wrap"><div class="bar-fill" style="width:57%"></div></div>
+    </div>
+    <div class="signal-row">
+      <div class="signal-name">Temporal Cadence Alignment</div>
+      <div class="signal-weight">15%</div>
+      <div class="bar-wrap"><div class="bar-fill" style="width:43%;background:#7c5cd8"></div></div>
+    </div>
+    <div class="signal-row">
+      <div class="signal-name">Stylometric Similarity</div>
+      <div class="signal-weight">15%</div>
+      <div class="bar-wrap"><div class="bar-fill" style="width:43%;background:#7c5cd8"></div></div>
+    </div>
+    <div class="signal-row">
+      <div class="signal-name">Behavioural Similarity</div>
+      <div class="signal-weight">15%</div>
+      <div class="bar-wrap"><div class="bar-fill" style="width:43%;background:#7c5cd8"></div></div>
+    </div>
+  </div>
+
+  <h2>Alias Similarity Algorithms</h2>
+  <table>
+    <tr><th>Algorithm</th><th>Weight</th><th>Description</th></tr>
+    <tr><td>Levenshtein Edit Distance</td><td>35%</td><td>Normalized edit distance — minimum character insertions, deletions, substitutions</td></tr>
+    <tr><td>Jaro-Winkler</td><td>35%</td><td>Prefix-weighted string similarity — higher scores for shared leading characters</td></tr>
+    <tr><td>2-gram Character Overlap (Jaccard)</td><td>30%</td><td>Bigram set intersection ÷ union — structural character pattern matching</td></tr>
+  </table>
+
+  <div class="callout">
+    Confidence tiers: <strong>HIGH</strong> (≥ 75%), <strong>MEDIUM</strong> (≥ 50%), <strong>LOW</strong> (&lt; 50%), <strong>UNAVAILABLE</strong> (no signals available from source). All confidence values are analytical indicators — explicitly not legal identity attribution.
+  </div>
+
+
+  
+  <h1>6. Authorized Threat Feed Architecture</h1>
+
+  <h2>Operating Modes</h2>
+  <table>
+    <tr><th>Mode</th><th>Trigger</th><th>Behavior</th></tr>
+    <tr>
+      <td><span class="badge badge-gray">OFFLINE_DEMO_MODE</span></td>
+      <td><code>MISP_URL</code> / <code>MISP_API_KEY</code> not set</td>
+      <td>Platform runs entirely offline with synthetic fixtures. All features functional. No network calls.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-blue">AUTHORIZED_LIVE_FEED</span></td>
+      <td>MISP environment variables configured</td>
+      <td>Read-only REST queries against authorized enterprise MISP instance via SSL-verified HTTPS.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-purple">PUBLIC_CIRCL_OSINT_FEED</span></td>
+      <td>Always available (no credentials needed)</td>
+      <td>Public CIRCL MISP OSINT feed via <code>https://www.circl.lu/doc/misp/feed-osint</code>. UUID-validated, attribute-bounded, strictly CASE-AUTH-MISP scoped.</td>
+    </tr>
+  </table>
+
+  <h2>Security &amp; Isolation Safeguards</h2>
+  <table>
+    <tr><th>Safeguard</th><th>Implementation</th></tr>
+    <tr><td>API Key Protection</td><td><code>_mask_api_key()</code> scrubs <code>MISP_API_KEY</code> from all error strings and log entries before writing</td></tr>
+    <tr><td>Credential-Free Audit Logs</td><td><code>sanitize_audit_details()</code> blocks keys matching: <em>password, secret, token, credential, private_key, api_key</em></td></tr>
+    <tr><td>Case Isolation</td><td>External feed imports are strictly locked to <code>CASE-AUTH-MISP</code>. Baseline synthetic cases are immutable.</td></tr>
+    <tr><td>Strict UUID Validation</td><td>All CIRCL event UUIDs are validated against RFC 4122 regex before any URL construction</td></tr>
+    <tr><td>SSL Verification</td><td>Default <code>MISP_VERIFY_SSL=true</code>. Enforced via <code>ssl.create_default_context()</code></td></tr>
+    <tr><td>Incremental Polling</td><td>CIRCL poll engine tracks processed UUIDs in <code>circl_feed_state.json</code> — never re-downloads known events</td></tr>
+    <tr><td>Pull-Only Architecture</td><td>No endpoints exist to write, publish, or push indicators back to external systems</td></tr>
+  </table>
+
+
+  
+  <h1>7. REST API Reference</h1>
+
+  <div class="api-group">
+    <div class="api-group-title">Core Investigation &amp; Multi-Case</div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/cases</span><span class="api-desc">Catalog of all registered synthetic cases</span></div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/cases/{case_id}</span><span class="api-desc">Metadata for a specific case</span></div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/actors</span><span class="api-desc">Tracked actor clusters with aliases, scores, PGP/wallet</span></div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/actors/{id}/drilldown</span><span class="api-desc">Comprehensive dossier — correlation + OPSEC + evidence + graph</span></div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/evidence</span><span class="api-desc">Evidence catalog records with type, confidence, status</span></div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/graph</span><span class="api-desc">Relationship graph nodes and edges</span></div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/timeline</span><span class="api-desc">Chronological investigation milestones</span></div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/metrics</span><span class="api-desc">Summary metrics — actors, evidence, identifiers, high-confidence links</span></div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/search?q={query}</span><span class="api-desc">Unified artifact and candidate search</span></div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/health</span><span class="api-desc">Platform status and safety compliance probe</span></div>
+  </div>
+
+  <div class="api-group">
+    <div class="api-group-title">Correlation Engine &amp; OPSEC Analytics</div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/analytics/alias-similarity</span><span class="api-desc">Levenshtein + Jaro-Winkler + n-gram alias score breakdown</span></div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/analytics/correlation/{actor_id}</span><span class="api-desc">5-dimension ensemble correlation with signal contributions</span></div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/analytics/opsec-evaluation/{actor_id}</span><span class="api-desc">Itemized OPSEC hygiene exposure triggers and trend scores</span></div>
+  </div>
+
+  <div class="api-group">
+    <div class="api-group-title">Reporting, Provenance &amp; STIX 2.1</div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/cases/{case_id}/report</span><span class="api-desc">9-section structured JSON investigation report</span></div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/cases/{case_id}/report/markdown</span><span class="api-desc">Intelligence-grade executive Markdown briefing</span></div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/cases/{case_id}/stix</span><span class="api-desc">STIX 2.1 compliant JSON bundle (threat-actor, indicators, relationships, report)</span></div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/evidence/{id}/provenance</span><span class="api-desc">SHA-256 integrity digest + Admiralty B-2 provenance metadata</span></div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/audit</span><span class="api-desc">Append-only audit trail (filterable by case, action)</span></div>
+  </div>
+
+  <div class="api-group">
+    <div class="api-group-title">MISP Authorized Feeds (Phase 6.2)</div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/feeds/misp/status</span><span class="api-desc">Operational mode and config status — zero credential exposure</span></div>
+    <div class="api-row"><span class="method post">POST</span><span class="path">/api/feeds/misp/test-connection</span><span class="api-desc">Lightweight read-only MISP connectivity probe</span></div>
+    <div class="api-row"><span class="method post">POST</span><span class="path">/api/feeds/misp/preview</span><span class="api-desc">Normalize and preview MISP indicators (live or mock)</span></div>
+    <div class="api-row"><span class="method post">POST</span><span class="path">/api/feeds/misp/import</span><span class="api-desc">Controlled ingestion into CASE-AUTH-MISP with provenance records</span></div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/feeds/misp/evidence</span><span class="api-desc">List all authorized feed indicators in CASE-AUTH-MISP</span></div>
+  </div>
+
+  <div class="api-group">
+    <div class="api-group-title">CIRCL Public OSINT Feed (Phase 6.3–6.4)</div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/feeds/circl/status</span><span class="api-desc">Feed reachability check + latest manifest event summaries</span></div>
+    <div class="api-row"><span class="method post">POST</span><span class="path">/api/feeds/circl/preview</span><span class="api-desc">Preview CIRCL event observables without persistence</span></div>
+    <div class="api-row"><span class="method post">POST</span><span class="path">/api/feeds/circl/import</span><span class="api-desc">Import CIRCL event indicators into CASE-AUTH-MISP with provenance</span></div>
+    <div class="api-row"><span class="method post">POST</span><span class="path">/api/feeds/circl/poll</span><span class="api-desc">Incremental deduplication poll — only new UUIDs processed per cycle</span></div>
+    <div class="api-row"><span class="method get">GET</span><span class="path">/api/feeds/circl/sync-status</span><span class="api-desc">Total tracked events, last poll timestamp, cumulative import count</span></div>
+  </div>
+
+
+  
+  <h1>8. Data Models &amp; STIX 2.1 Export</h1>
+
+  <h2>STIX Object Mapping</h2>
+  <table>
+    <tr><th>Case Type</th><th>STIX Object Generated</th><th>Labels Applied</th></tr>
+    <tr><td>Synthetic cases</td><td><code>threat-actor</code> SDO per actor cluster</td><td><code>synthetic-demo-data</code>, <code>defensive-research-prototype</code></td></tr>
+    <tr><td>Authorized CTI (CIRCL/MISP)</td><td><code>identity</code> SDO (feed provider) — no fabricated threat-actor</td><td><code>authorized-cti</code>, <code>public-osint</code>, <code>defensive-research</code></td></tr>
+    <tr><td>All evidence</td><td><code>observed-data</code> SDO with typed SCO inside <code>objects</code></td><td>Per case type above</td></tr>
+    <tr><td>Valid IOCs</td><td><code>indicator</code> SDO with STIX pattern expression</td><td>Per case type above</td></tr>
+    <tr><td>Graph edges</td><td><code>relationship</code> SDO (<code>uses</code> / <code>related-to</code>)</td><td>Per case type above</td></tr>
+    <tr><td>Case metadata</td><td><code>report</code> SDO referencing all bundle objects</td><td><code>investigation-dossier</code> or <code>threat-report</code></td></tr>
+  </table>
+
+  <h2>IOC Type Detection</h2>
+  <p>The STIX export auto-detects observable types from raw evidence identifiers: IPv4, IPv6, URLs, SHA-256 / SHA-1 / MD5 file hashes, domain names, PGP keys, cryptocurrency wallets, and forum aliases — each mapped to the appropriate STIX SCO.</p>
+
+  <h2>Evidence Provenance — Admiralty Rating System</h2>
+  <table>
+    <tr><th>Source</th><th>Reliability</th><th>Credibility</th></tr>
+    <tr><td>Synthetic Demo Fixtures</td><td>A — Completely Reliable</td><td>1 — Confirmed by Other Sources</td></tr>
+    <tr><td>Authorized MISP REST Feed</td><td>B — Usually Reliable</td><td>2 — Probably True</td></tr>
+    <tr><td>Public CIRCL OSINT Feed</td><td>B — Usually Reliable</td><td>2 — Probably True</td></tr>
+  </table>
+
+
+  
+  <h1>9. Frontend Dashboard</h1>
+  <p>
+    The dashboard is a single-page application (<code>index.html</code> + <code>app.js</code> + <code>style.css</code>)
+    served as static files from the FastAPI backend. It features a dark cyber-ops aesthetic with a CRT scanline
+    overlay, a Matrix-style animated canvas background, and a boot sequence terminal screen.
+  </p>
+
+  <h2>Navigation Sections (12 Panels)</h2>
+  <div class="component-grid">
+    <div class="comp-card"><h3>OVERVIEW</h3><p>Live metrics, case selector, key statistics grid.</p></div>
+    <div class="comp-card"><h3>ACTORS</h3><p>Actor cluster profiles, drill-down dossier trigger.</p></div>
+    <div class="comp-card"><h3>EVIDENCE</h3><p>Evidence catalog, SHA-256 provenance lookup.</p></div>
+    <div class="comp-card"><h3>REL. GRAPH</h3><p>Interactive relationship canvas with node inspection.</p></div>
+    <div class="comp-card"><h3>TIMELINE</h3><p>Chronological investigation milestones.</p></div>
+    <div class="comp-card"><h3>ANALYTICS</h3><p>Alias similarity calculator, ensemble correlation.</p></div>
+    <div class="comp-card"><h3>OPSEC DECAY</h3><p>OPSEC hygiene exposure trend chart.</p></div>
+    <div class="comp-card"><h3>IDENTITY SIGNALS</h3><p>Multi-dimensional identity signal breakdown.</p></div>
+    <div class="comp-card"><h3>THREAT FEEDS</h3><p>MISP/CIRCL status, import/poll controls.</p></div>
+    <div class="comp-card"><h3>DEAD DROPS</h3><p>Communication artifact tracking.</p></div>
+    <div class="comp-card"><h3>REPORTS</h3><p>One-click STIX 2.1 export, JSON &amp; Markdown briefings, audit log viewer.</p></div>
+    <div class="comp-card"><h3>SETTINGS</h3><p>Platform configuration, feed credentials (UI only).</p></div>
+  </div>
+
+
+  
+  <h1>10. Test Suite — 672 Tests Passing</h1>
+
+  <ul class="test-list">
+    <li><span class="test-pass">✓</span> <code>test_analytics.py</code> — Alias similarity algorithms, ensemble scores</li>
+    <li><span class="test-pass">✓</span> <code>test_phase3.py</code> — Multi-case registry, node inspection, drilldown</li>
+    <li><span class="test-pass">✓</span> <code>test_phase4_step1.py</code> — SHA-256 canonical hashing, provenance records</li>
+    <li><span class="test-pass">✓</span> <code>test_phase4_step2.py</code> — Audit logger, sanitization, JSONL output</li>
+    <li><span class="test-pass">✓</span> <code>test_phase4_step3.py</code> — STIX 2.1 bundle generation, IOC type detection</li>
+    <li><span class="test-pass">✓</span> <code>test_phase4_step4.py</code> — 9-section report generation, Markdown briefing</li>
+    <li><span class="test-pass">✓</span> <code>test_phase4_step5_integration.py</code> — Phase 4 full end-to-end integration</li>
+    <li><span class="test-pass">✓</span> <code>test_phase5_integration.py</code> — OPSEC isolation, synthetic vs. real data delineation</li>
+    <li><span class="test-pass">✓</span> <code>test_opsec_isolation.py</code> — Synthetic case detection, signal renormalization</li>
+    <li><span class="test-pass">✓</span> <code>test_opsec_api_runtime.py</code> — OPSEC evaluation API runtime behavior</li>
+    <li><span class="test-pass">✓</span> <code>test_misp_adapter.py</code> — MISPAdapter normalization, credential protection</li>
+    <li><span class="test-pass">✓</span> <code>test_phase6_2_integration.py</code> — MISP feed API full integration</li>
+    <li><span class="test-pass">✓</span> <code>test_phase6_3_authorized.py</code> — CIRCL adapter, UUID validation, case isolation</li>
+    <li><span class="test-pass">✓</span> <code>test_phase6_4_e2e_feed.py</code> — CIRCL incremental poll, dedup, sync state persistence</li>
+  </ul>
+
+  <div class="callout ok">
+    <strong>Validation Status:</strong> <strong>672 tests passed, 0 failed — 100% passing</strong> across all 14 suites covering Phases 1 through 6.4.
+  </div>
+
+
+  
+  <h1>11. Configuration &amp; Quick Start</h1>
+
+  <h2>Environment Variables (Optional — for live MISP)</h2>
+  <table>
+    <tr><th>Variable</th><th>Default</th><th>Description</th></tr>
+    <tr><td><code>MISP_URL</code></td><td><em>None</em></td><td>Base URL of authorized MISP instance</td></tr>
+    <tr><td><code>MISP_API_KEY</code></td><td><em>None</em></td><td>Automation Auth Key (never logged or exposed in any response)</td></tr>
+    <tr><td><code>MISP_VERIFY_SSL</code></td><td><code>true</code></td><td>Enforce strict TLS certificate validation</td></tr>
+    <tr><td><code>MISP_TIMEOUT</code></td><td><code>15</code></td><td>Read-only REST request timeout in seconds</td></tr>
+  </table>
+
+  <h2>Startup (Windows PowerShell)</h2>
+  <div style="background:#0d1117;border-radius:6px;padding:14px 18px;margin:12px 0 18px;font-family:'Courier New',monospace;font-size:12px;color:#79c0ff;line-height:1.8">
+    .venv\Scripts\Activate.ps1<br />
+    pip install -r requirements.txt<br />
+    .venv\Scripts\python.exe -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
+  </div>
+  <p>Dashboard available at <code>http://127.0.0.1:8000</code> · API docs at <code>http://127.0.0.1:8000/docs</code></p>
+
+
+  
+  <h1>12. Defensive Research &amp; Safety Classification</h1>
+
+  <table>
+    <tr><th>Property</th><th>Value</th></tr>
+    <tr><td>Data Mode</td><td><code>SYNTHETIC_DEMO_DATA</code> (baseline) / <code>AUTHORIZED_PUBLIC_CTI</code> (feed container)</td></tr>
+    <tr><td>Project Scope</td><td><code>DEFENSIVE_RESEARCH_PROTOTYPE</code></td></tr>
+    <tr><td>Attribution Policy</td><td><code>ANALYTICAL_SIGNALS_ONLY — NOT PROOF OF REAL-WORLD IDENTITY</code></td></tr>
+    <tr><td>Network Scope</td><td><code>LOCAL_AUTHORIZED_RESEARCH_ONLY</code> (offline) / <code>PUBLIC_AUTHORIZED_OSINT_FEED</code> (CIRCL)</td></tr>
+    <tr><td>Dark-Web / Tor Access</td><td>None — strictly prohibited. Zero connections implemented.</td></tr>
+    <tr><td>Unauthorized Network Access</td><td>None — all HTTPS calls are to public/authorized endpoints only.</td></tr>
+    <tr><td>Live MISP Server</td><td>Not connected. Validated using controlled mock data in isolated offline sandbox.</td></tr>
+  </table>
+
+  <div class="callout warn">
+    <strong>Non-Attributive Notice:</strong> Correlation scores, stylometry analysis, and OPSEC hygiene signals represent analytical indicators for defensive training and research. They do <strong>not</strong> constitute definitive legal identity attribution or real-world individual tracking.
+  </div>
+
+  <footer>
+    <p>Made with IBM Bob</p>
+  </footer>
+
+</div>
+</body>
+</html>
